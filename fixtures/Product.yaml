@@ -4,7 +4,7 @@ App\Entity\Product:
         description: '<sentence()>'
         priceHt: '<numberBetween(5, 200)>'
         isActive: '<boolean()>'
-        animal: '@animal*'
+        animals: '<numberBetween(1, 2)>x @animal*'
         brand: '@brand*'
         category: '@category*'
 

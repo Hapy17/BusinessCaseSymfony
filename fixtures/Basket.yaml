@@ -1,0 +1,5 @@
+App\Entity\Basket:
+    basket{0..100}:
+        createdAt: '<(new DateTime("now"))>'
+        basketStatus: '10%? 100 : 200 '
+        user: '@account0*'
