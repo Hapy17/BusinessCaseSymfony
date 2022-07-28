@@ -2,12 +2,21 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\OrderRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: OrderRepository::class)]
 #[ORM\Table(name: '`order`')]
+#[ApiResource(
+    collectionOperations: [
+        'get' => ['security' => 'is_granted("ROLE_ADMIN")'],
+    ],
+    itemOperations: [
+        'get' => ['security' => 'is_granted("ROLE_ADMIN")' ],
+    ],
+)]
 class Order
 {
     #[ORM\Id]
@@ -21,7 +30,7 @@ class Order
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $billedAt = null;
 
-    #[ORM\OneToOne(inversedBy: 'relateOrder', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(inversedBy: 'relateOrder')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Basket $basket = null;
 

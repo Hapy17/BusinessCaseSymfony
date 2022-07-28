@@ -1,0 +1,5 @@
+App\Entity\PostalAddress:
+    postalAddress{0..100}:
+        line1: '<sentence(4)>'
+        postalCode: '<numberBetween(1000, 9999)>'
+        city: '<lastName()>'

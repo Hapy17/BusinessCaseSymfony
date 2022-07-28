@@ -1,0 +1,8 @@
+App\Entity\Order:
+    order{0..20}:
+        convertedAt: '<dateTime(now)>'
+        billedAt: '<dateTime(now)>'
+        postalAddress: '@postalAddress*'
+        basket: '@basketwithcmd<current()>'
+        orderState: '@orderState*'
+        paymentMethod: '@paymentMethod*'

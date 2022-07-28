@@ -9,8 +9,9 @@ App\Entity\User:
         lastName: '<lastName()>'
         birthAt: '<(new DateTime("2009"))>'
         createdAt: '<(new DateTime("today"))>'
-        postalAddress: '@postalAddress'
-        gender: '@gender'
+        postalAddress: '@postalAddress*'
+        products: '<numberBetween(1,15)>x @product*'
+        gender: '@gender*'
 
     account_admin (extends account):
         email: 'admin@test.com' #à changer pour le final en LaTerreEstPlate@admin.com

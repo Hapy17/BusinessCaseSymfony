@@ -3,3 +3,7 @@ App\Entity\Basket:
         createdAt: '<(new DateTime("now"))>'
         basketStatus: '10%? 100 : 200 '
         user: '@account0*'
+    basketwithcmd{0..20}:
+        createdAt: '<(new DateTime("now"))>'
+        basketStatus: '10%? 100 : 200 '
+        user: '@account0*'
