@@ -1,0 +1,10 @@
+App\Entity\Gender:
+    gender0:
+        type: 'Femme'
+    gender1:
+        type: 'Homme'
+    gender2:
+        type: 'Non-binaire'
+    gender3:
+        type: 'Escargot'
+    

@@ -1,0 +1,6 @@
+App\Entity\Picture:
+    picture{0..50}:
+        name: '<word()>'
+        path: '<word()>/'
+        isMain : '<boolean()>'
+        product: '@product*'

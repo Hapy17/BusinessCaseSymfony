@@ -1,0 +1,6 @@
+App\Entity\PaymentMethod:
+    paymentMethod0:
+        denomination: 'Paypal'
+    paymentMethod1:
+        denomination: 'Carte Bleu'
+

@@ -1,0 +1,12 @@
+App\Entity\Category:
+    category00:
+        label: 'Hygiène'
+    category01:
+        label: 'Nourriture'
+    category02:
+        label: 'Equipement'
+    category03:
+        label: 'Oiseau'
+    category1{0..50}:
+        label: '<word()>'
+        relatedCategory: '@category0*'

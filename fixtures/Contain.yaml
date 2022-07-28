@@ -1,0 +1,6 @@
+App\Entity\Contain:
+    contain{0..100}:
+        quantity: '<numberBetween(1, 10)>'
+        unitPriceHt: '<numberBetween(5, 200)>'
+        product: '@product*'
+        basket: '@basket*'

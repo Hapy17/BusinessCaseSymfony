@@ -1,0 +1,11 @@
+App\Entity\Product:
+    product{0..200}:
+        name: '<word()>'
+        description: '<sentence()>'
+        priceHt: '<numberBetween(5, 200)>'
+        isActive: '<boolean()>'
+        animal: '@animal*'
+        brand: '@brand*'
+        category: '@category*'
+
+    

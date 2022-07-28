@@ -1,0 +1,11 @@
+App\Entity\OrderState:
+    orderState0:
+        status: 'En cours'
+    orderState1:
+        status: 'En attente'
+    orderState2:
+        status: 'Terminé'
+    orderState3:
+        status: 'Annulé'
+    orderState4:
+        status: 'En attente de paiement'

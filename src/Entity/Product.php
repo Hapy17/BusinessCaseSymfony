@@ -38,7 +38,7 @@ class Product
     private Collection $contains;
 
     #[ORM\ManyToMany(targetEntity: Animal::class, inversedBy: 'products')]
-    private Collection $animal;
+    private Collection $animals;
 
     #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'products')]
     private Collection $user;
@@ -54,7 +54,7 @@ class Product
         $this->reviews = new ArrayCollection();
         $this->pictures = new ArrayCollection();
         $this->contains = new ArrayCollection();
-        $this->animal = new ArrayCollection();
+        $this->animals = new ArrayCollection();
         $this->user = new ArrayCollection();
     }
 
@@ -204,15 +204,15 @@ class Product
     /**
      * @return Collection<int, Animal>
      */
-    public function getAnimal(): Collection
+    public function getAnimals(): Collection
     {
-        return $this->animal;
+        return $this->animals;
     }
 
     public function addAnimal(Animal $animal): self
     {
-        if (!$this->animal->contains($animal)) {
-            $this->animal[] = $animal;
+        if (!$this->animals->contains($animal)) {
+            $this->animals[] = $animal;
         }
 
         return $this;
@@ -220,7 +220,7 @@ class Product
 
     public function removeAnimal(Animal $animal): self
     {
-        $this->animal->removeElement($animal);
+        $this->animals->removeElement($animal);
 
         return $this;
     }

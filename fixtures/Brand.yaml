@@ -1,0 +1,3 @@
+App\Entity\Brand:
+    brand{0..50}:
+        designation: '<word(1)>'

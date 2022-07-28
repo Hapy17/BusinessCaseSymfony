@@ -1,0 +1,21 @@
+# parameters:
+#     password: '$2y$13$vldgApLZb5YMp51QTlLTyOSQf.TTiDYfd55FuaF6ZV2TAAdgE3enG' # 1234
+# App\Entity\User:
+#     account (template):
+#         email: '<email()>'
+#         roles: ['ROLE_USER']
+#         password: '<{password}>'
+#         firstName: '<firstName()>'
+#         lastName: '<lastName()>'
+#         birthAt: '<(new DateTime("2009"))>'
+#         createdAt: '<(new DateTime("today"))>'
+#         postalAddress: '@postalAddress'
+#         gender: '@gender'
+
+#     account_admin (extends account):
+#         email: 'admin@test.com' #à changer pour le final en LaTerreEstPlate@admin.com
+#         firstName: 'Admin'      
+#         roles: ['ROLE_ADMIN']
+#         # Changer le mot de passe pour le final en Issou2021
+
+#     account{0..105} (extends account): ~

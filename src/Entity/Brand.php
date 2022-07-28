@@ -51,7 +51,7 @@ class Brand
         return $this->products;
     }
 
-    public function addProduct(Product $product): self
+    public function addProduct(?Product $product): self
     {
         if (!$this->products->contains($product)) {
             $this->products[] = $product;
@@ -61,7 +61,7 @@ class Brand
         return $this;
     }
 
-    public function removeProduct(Product $product): self
+    public function removeProduct(?Product $product): self
     {
         if ($this->products->removeElement($product)) {
             // set the owning side to null (unless already changed)

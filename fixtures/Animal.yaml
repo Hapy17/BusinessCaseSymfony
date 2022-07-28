@@ -1,0 +1,10 @@
+App\Entity\Animal:
+    animal0:
+        species: 'Chien'
+    animal1:
+        species: 'Chat'
+    animal2:
+        species: 'Rongeur & Co'
+    animal3:
+        species: 'Oiseau'
+
