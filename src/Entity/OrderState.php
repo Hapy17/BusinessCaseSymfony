@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\OrderStateRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: OrderStateRepository::class)]
@@ -15,6 +17,14 @@ class OrderState
 
     #[ORM\Column(length: 50)]
     private ?string $status = null;
+
+    #[ORM\OneToMany(mappedBy: 'orderState', targetEntity: Order::class)]
+    private Collection $ordersState;
+
+    public function __construct()
+    {
+        $this->ordersState = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -29,6 +39,36 @@ class OrderState
     public function setStatus(string $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Order>
+     */
+    public function getOrdersState(): Collection
+    {
+        return $this->ordersState;
+    }
+
+    public function addOrdersState(Order $ordersState): self
+    {
+        if (!$this->ordersState->contains($ordersState)) {
+            $this->ordersState[] = $ordersState;
+            $ordersState->setOrderState($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrdersState(Order $ordersState): self
+    {
+        if ($this->ordersState->removeElement($ordersState)) {
+            // set the owning side to null (unless already changed)
+            if ($ordersState->getOrderState() === $this) {
+                $ordersState->setOrderState(null);
+            }
+        }
 
         return $this;
     }

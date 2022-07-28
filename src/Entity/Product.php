@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProductRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -25,6 +27,30 @@ class Product
 
     #[ORM\Column]
     private ?bool $isActive = null;
+
+    #[ORM\OneToMany(mappedBy: 'product', targetEntity: Review::class)]
+    private Collection $reviews;
+
+    #[ORM\OneToMany(mappedBy: 'product', targetEntity: Picture::class)]
+    private Collection $pictures;
+
+    #[ORM\OneToMany(mappedBy: 'product', targetEntity: Contain::class)]
+    private Collection $contains;
+
+    #[ORM\ManyToMany(targetEntity: Animal::class, inversedBy: 'products')]
+    private Collection $animal;
+
+    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'products')]
+    private Collection $user;
+
+    public function __construct()
+    {
+        $this->reviews = new ArrayCollection();
+        $this->pictures = new ArrayCollection();
+        $this->contains = new ArrayCollection();
+        $this->animal = new ArrayCollection();
+        $this->user = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -75,6 +101,144 @@ class Product
     public function setIsActive(bool $isActive): self
     {
         $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Review>
+     */
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function addReview(Review $review): self
+    {
+        if (!$this->reviews->contains($review)) {
+            $this->reviews[] = $review;
+            $review->setProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReview(Review $review): self
+    {
+        if ($this->reviews->removeElement($review)) {
+            // set the owning side to null (unless already changed)
+            if ($review->getProduct() === $this) {
+                $review->setProduct(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Picture>
+     */
+    public function getPictures(): Collection
+    {
+        return $this->pictures;
+    }
+
+    public function addPicture(Picture $picture): self
+    {
+        if (!$this->pictures->contains($picture)) {
+            $this->pictures[] = $picture;
+            $picture->setProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removePicture(Picture $picture): self
+    {
+        if ($this->pictures->removeElement($picture)) {
+            // set the owning side to null (unless already changed)
+            if ($picture->getProduct() === $this) {
+                $picture->setProduct(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Contain>
+     */
+    public function getContains(): Collection
+    {
+        return $this->contains;
+    }
+
+    public function addContain(Contain $contain): self
+    {
+        if (!$this->contains->contains($contain)) {
+            $this->contains[] = $contain;
+            $contain->setProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContain(Contain $contain): self
+    {
+        if ($this->contains->removeElement($contain)) {
+            // set the owning side to null (unless already changed)
+            if ($contain->getProduct() === $this) {
+                $contain->setProduct(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Animal>
+     */
+    public function getAnimal(): Collection
+    {
+        return $this->animal;
+    }
+
+    public function addAnimal(Animal $animal): self
+    {
+        if (!$this->animal->contains($animal)) {
+            $this->animal[] = $animal;
+        }
+
+        return $this;
+    }
+
+    public function removeAnimal(Animal $animal): self
+    {
+        $this->animal->removeElement($animal);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUser(): Collection
+    {
+        return $this->user;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->user->contains($user)) {
+            $this->user[] = $user;
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        $this->user->removeElement($user);
 
         return $this;
     }

@@ -21,6 +21,22 @@ class Order
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $billedAt = null;
 
+    #[ORM\OneToOne(inversedBy: 'relateOrder', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Basket $basket = null;
+
+    #[ORM\ManyToOne(inversedBy: 'orders')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?PostalAddress $postalAddress = null;
+
+    #[ORM\ManyToOne(inversedBy: 'ordersState')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?OrderState $orderState = null;
+
+    #[ORM\ManyToOne(inversedBy: 'ordersPayments')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?PaymentMethod $paymentMethod = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -46,6 +62,54 @@ class Order
     public function setBilledAt(\DateTimeInterface $billedAt): self
     {
         $this->billedAt = $billedAt;
+
+        return $this;
+    }
+
+    public function getBasket(): ?Basket
+    {
+        return $this->basket;
+    }
+
+    public function setBasket(Basket $basket): self
+    {
+        $this->basket = $basket;
+
+        return $this;
+    }
+
+    public function getPostalAddress(): ?PostalAddress
+    {
+        return $this->postalAddress;
+    }
+
+    public function setPostalAddress(?PostalAddress $postalAddress): self
+    {
+        $this->postalAddress = $postalAddress;
+
+        return $this;
+    }
+
+    public function getOrderState(): ?OrderState
+    {
+        return $this->orderState;
+    }
+
+    public function setOrderState(?OrderState $orderState): self
+    {
+        $this->orderState = $orderState;
+
+        return $this;
+    }
+
+    public function getPaymentMethod(): ?PaymentMethod
+    {
+        return $this->paymentMethod;
+    }
+
+    public function setPaymentMethod(?PaymentMethod $paymentMethod): self
+    {
+        $this->paymentMethod = $paymentMethod;
 
         return $this;
     }

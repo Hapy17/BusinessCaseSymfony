@@ -19,6 +19,14 @@ class Picture
     #[ORM\Column]
     private ?bool $isMain = null;
 
+    #[ORM\ManyToOne(inversedBy: 'pictures')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?PicturePath $picturePath = null;
+
+    #[ORM\ManyToOne(inversedBy: 'pictures')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Product $product = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +52,30 @@ class Picture
     public function setIsMain(bool $isMain): self
     {
         $this->isMain = $isMain;
+
+        return $this;
+    }
+
+    public function getPicturePath(): ?PicturePath
+    {
+        return $this->picturePath;
+    }
+
+    public function setPicturePath(?PicturePath $picturePath): self
+    {
+        $this->picturePath = $picturePath;
+
+        return $this;
+    }
+
+    public function getProduct(): ?Product
+    {
+        return $this->product;
+    }
+
+    public function setProduct(?Product $product): self
+    {
+        $this->product = $product;
 
         return $this;
     }

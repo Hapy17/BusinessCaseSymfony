@@ -20,6 +20,14 @@ class Contain
     #[ORM\Column(type: Types::DECIMAL, precision: 6, scale: '0')]
     private ?string $unitPriceHt = null;
 
+    #[ORM\ManyToOne(inversedBy: 'contains')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Product $product = null;
+
+    #[ORM\ManyToOne(inversedBy: 'contains')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Basket $basket = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -45,6 +53,30 @@ class Contain
     public function setUnitPriceHt(string $unitPriceHt): self
     {
         $this->unitPriceHt = $unitPriceHt;
+
+        return $this;
+    }
+
+    public function getProduct(): ?Product
+    {
+        return $this->product;
+    }
+
+    public function setProduct(?Product $product): self
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    public function getBasket(): ?Basket
+    {
+        return $this->basket;
+    }
+
+    public function setBasket(?Basket $basket): self
+    {
+        $this->basket = $basket;
 
         return $this;
     }
