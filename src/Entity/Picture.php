@@ -21,11 +21,10 @@ class Picture
 
     #[ORM\ManyToOne(inversedBy: 'pictures')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?PicturePath $picturePath = null;
-
-    #[ORM\ManyToOne(inversedBy: 'pictures')]
-    #[ORM\JoinColumn(nullable: false)]
     private ?Product $product = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $path = null;
 
     public function getId(): ?int
     {
@@ -56,14 +55,14 @@ class Picture
         return $this;
     }
 
-    public function getPicturePath(): ?PicturePath
+    public function getPath(): ?string
     {
-        return $this->picturePath;
+        return $this->path;
     }
 
-    public function setPicturePath(?PicturePath $picturePath): self
+    public function setPath(string $path): self
     {
-        $this->picturePath = $picturePath;
+        $this->path = $path;
 
         return $this;
     }
