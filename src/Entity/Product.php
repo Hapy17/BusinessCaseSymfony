@@ -43,6 +43,12 @@ class Product
     #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'products')]
     private Collection $user;
 
+    #[ORM\ManyToOne(inversedBy: 'products')]
+    private ?Brand $brand = null;
+
+    #[ORM\ManyToOne(inversedBy: 'products')]
+    private ?Category $category = null;
+
     public function __construct()
     {
         $this->reviews = new ArrayCollection();
@@ -239,6 +245,30 @@ class Product
     public function removeUser(User $user): self
     {
         $this->user->removeElement($user);
+
+        return $this;
+    }
+
+    public function getBrand(): ?Brand
+    {
+        return $this->brand;
+    }
+
+    public function setBrand(?Brand $brand): self
+    {
+        $this->brand = $brand;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
