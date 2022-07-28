@@ -27,7 +27,7 @@ class Animal
     #[ORM\Column(length: 50)]
     private ?string $species = null;
 
-    #[ORM\ManyToMany(targetEntity: Product::class, mappedBy: 'animal')]
+    #[ORM\ManyToMany(targetEntity: Product::class, mappedBy: 'animals')]
     private Collection $products;
 
     public function __construct()
