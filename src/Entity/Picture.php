@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\PictureRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PictureRepository::class)]
 #[ApiResource(
@@ -21,9 +22,31 @@ class Picture
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
+    #[
+        Assert\NotBlank([
+            'message'=> 'Le nom de la photo doit être renseigné',
+        ]),
+        Assert\Length([
+            'min' => 2,
+            'max' => 50,
+            'minMessage' => 'Le nom de la photo doit faire au moins 2 caractères',
+            'maxMessage' => 'Le nom de la photo doit faire au maximum 50 caractères',
+        ])
+
+    ]
     private ?string $name = null;
 
     #[ORM\Column]
+    #[
+        Assert\NotBlank([
+            'message'=> 'La photo doit être renseignée',
+        ]),
+        Assert\Image([
+            'maxSize' => '2M',
+            'mimeTypes' => ['image/png', 'image/jpeg'],
+            'mimeTypesMessage' => 'Le fichier doit être une image',
+        ])
+    ]
     private ?bool $isMain = null;
 
     #[ORM\ManyToOne(inversedBy: 'pictures')]
@@ -31,6 +54,17 @@ class Picture
     private ?Product $product = null;
 
     #[ORM\Column(length: 255)]
+    #[
+        Assert\NotBlank([
+            'message'=> 'Le lien de la photo doit être renseigné',
+        ]),
+        Assert\Length([
+            'min' => 2,
+            'max' => 255,
+            'minMessage' => 'Le lien de la photo doit faire au moins 2 caractères',
+            'maxMessage' => 'Le lien de la photo doit faire au maximum 255 caractères',
+        ])
+    ]
     private ?string $path = null;
 
     public function getId(): ?int

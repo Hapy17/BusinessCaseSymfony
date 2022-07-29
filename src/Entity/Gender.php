@@ -7,6 +7,7 @@ use App\Repository\GenderRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: GenderRepository::class)]
 #[ApiResource(
@@ -23,6 +24,18 @@ class Gender
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
+    #[
+        Assert\NotBlank([
+            'message'=> 'Le genre doit être renseigné',
+        ]),
+        Assert\Length([
+            'min' => 2,
+            'max' => 50,
+            'minMessage' => 'Le genre doit faire au moins 2 caractères',
+            'maxMessage' => 'Le genre doit faire au maximum 50 caractères',
+        ])
+
+    ]
     private ?string $type = null;
 
     #[ORM\OneToMany(mappedBy: 'gender', targetEntity: User::class)]

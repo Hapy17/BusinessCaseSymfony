@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
 #[ApiResource(
@@ -30,15 +31,58 @@ class Product
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
+    #[
+        Assert\NotBlank([
+            'message'=> 'Le nom du produit doit être renseigné',
+        ]),
+        Assert\Length([
+            'min' => 2,
+            'max' => 100,
+            'minMessage' => 'Le nom du produit doit faire au moins 2 caractères',
+            'maxMessage' => 'Le nom du produit doit faire au maximum 100 caractères',
+        ])
+    ]
     private ?string $name = null;
 
     #[ORM\Column(length: 200)]
+    #[
+        Assert\NotBlank([
+            'message'=> 'La description du produit doit être renseignée',
+        ]),
+        Assert\Length([
+            'min' => 2,
+            'max' => 200,
+            'minMessage' => 'La description du produit doit faire au moins 2 caractères',
+            'maxMessage' => 'La description du produit doit faire au maximum 200 caractères',
+        ])
+    ]
     private ?string $description = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 6, scale: 2)]
+    #[
+        Assert\NotBlank([
+            'message'=> 'Le prix du produit doit être renseigné',
+        ]),
+        Assert\Range([
+            'min' => 0,
+            'max' => 9999.99,
+            'minMessage' => 'Le prix du produit doit être supérieur ou égal à 0',
+            'maxMessage' => 'Le prix du produit doit être inférieur ou égal à 9999.99',
+        ])
+    ]
     private ?string $priceHt = null;
 
     #[ORM\Column]
+    #[
+        Assert\NotBlank([
+            'message'=> 'La date de création du produit doit être renseignée',
+        ]),
+        Assert\Type([
+            'type'=>'bool',
+            'message' => 'Le produit ne peut être ou ne pas être '
+
+        ])
+    ]
     private ?bool $isActive = null;
 
     #[ORM\OneToMany(mappedBy: 'product', targetEntity: Review::class)]

@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: BasketRepository::class)]
 #[ApiResource(
@@ -30,9 +31,31 @@ class Basket
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[
+        Assert\NotBlank([
+            "message" => "La date de la commande est obligatoire",
+        ]),
+        Assert\LessThanOrEqual([
+            "value" => "now",
+            "message" => "La date de la commande doit être inférieure ou égale à la date du jour",
+        ]),
+    ]
     private ?\DateTimeInterface $createdAt = null;
 
     #[ORM\Column]
+    #[
+        Assert\NotBlank([
+            "message" => "Le statut de la commande est obligatoire",
+        ]),
+        Assert\Choice([
+            "choices"=>[
+                "100" => "En cours",
+                "200" => "Terminé",
+                "300" => "Annulé",
+            ]
+        ])
+        
+    ]
     private ?int $basketStatus = null;
 
     #[ORM\OneToOne(mappedBy: 'basket', cascade: ['persist', 'remove'])]

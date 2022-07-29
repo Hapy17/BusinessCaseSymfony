@@ -6,6 +6,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ReviewRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ReviewRepository::class)]
 #[ApiResource(
@@ -22,12 +23,42 @@ class Review
     private ?int $id = null;
 
     #[ORM\Column(length: 200)]
+    #[
+        Assert\NotBlank([
+            'message'=> 'La description du produit doit être renseignée',
+        ]),
+        Assert\Length([
+            'min' => 2,
+            'max' => 200,
+            'minMessage' => 'La description du produit doit faire au moins 2 caractères',
+            'maxMessage' => 'La description du produit doit faire au maximum 200 caractères',
+        ])
+    ]
     private ?string $comment = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[
+        Assert\NotBlank([
+            'message'=> 'La date de publication du produit doit être renseignée',
+        ]),
+        Assert\DateTime([
+            'message'=> 'La date de publication du produit doit être une date valide',
+        ])
+    ]
     private ?\DateTimeInterface $issuedAt = null;
 
     #[ORM\Column(nullable: true)]
+    #[
+        Assert\NotBlank([
+            'message'=> 'La note du produit doit être renseignée',
+        ]),
+        Assert\Range([
+            'min' => 0,
+            'max' => 5,
+            'minMessage' => 'La note du produit doit être supérieure à 0',
+            'maxMessage' => 'La note du produit doit être inférieure à 5',
+        ])
+    ]
     private ?int $rating = null;
 
     #[ORM\ManyToOne(inversedBy: 'reviews')]

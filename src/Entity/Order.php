@@ -6,6 +6,8 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\OrderRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: OrderRepository::class)]
 #[ORM\Table(name: '`order`')]
@@ -29,9 +31,27 @@ class Order
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[
+        Assert\NotBlank([
+            'message'=> 'La date de la conversion en commande doit être renseignée',
+        ]),
+        Assert\DateTime([
+            'value' => 'now',
+            'message'=> 'La date de la conversion en commande doit être une date valide',
+        ])
+    ]
     private ?\DateTimeInterface $convertedAt = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[
+        Assert\NotBlank([
+            'message'=> 'La date du paiement de la commande doit être renseignée',
+        ]),
+        Assert\DateTime([
+            'value' => 'now',
+            'message'=> 'La date du paiement de la commande doit être une date valide',
+        ])
+    ]
     private ?\DateTimeInterface $billedAt = null;
 
     #[ORM\OneToOne(inversedBy: 'relateOrder')]

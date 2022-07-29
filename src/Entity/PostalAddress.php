@@ -7,6 +7,7 @@ use App\Repository\PostalAddressRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PostalAddressRepository::class)]
 #[ApiResource(
@@ -23,18 +24,67 @@ class PostalAddress
     private ?int $id = null;
 
     #[ORM\Column(length: 75)]
+    #[
+        Assert\NotBlank([
+            'message'=> 'Le nom de la rue doit être renseigné',
+        ]),
+        Assert\Length([
+            'min' => 2,
+            'max' => 75,
+            'minMessage' => 'Le nom de la rue doit faire au moins 2 caractères',
+            'maxMessage' => 'Le nom de la rue doit faire au maximum 75 caractères',
+        ])
+    ]
     private ?string $line1 = null;
 
     #[ORM\Column(length: 75, nullable: true)]
+    #[
+        Assert\Length([
+            'min' => 2,
+            'max' => 75,
+            'minMessage' => 'Le nom de la rue doit faire au moins 2 caractères',
+            'maxMessage' => 'Le nom de la rue doit faire au maximum 75 caractères',
+        ])
+    ]
     private ?string $line2 = null;
 
     #[ORM\Column(length: 75, nullable: true)]
+    #[
+        Assert\Length([
+            'min' => 2,
+            'max' => 75,
+            'minMessage' => 'Le nom de la rue doit faire au moins 2 caractères',
+            'maxMessage' => 'Le nom de la rue doit faire au maximum 75 caractères',
+        ])
+    ]
     private ?string $line3 = null;
 
     #[ORM\Column(length: 5)]
+    #[
+        Assert\NotBlank([
+            'message'=> 'Le code postal doit être renseigné',
+        ]),
+        Assert\Length([
+            'min' => 2,
+            'max' => 5,
+            'minMessage' => 'Le code postal doit faire au moins 2 caractères',
+            'maxMessage' => 'Le code postal doit faire au maximum 5 caractères',
+        ])
+    ]
     private ?string $postalCode = null;
 
     #[ORM\Column(length: 75)]
+    #[
+        Assert\NotBlank([
+            'message'=> 'La ville doit être renseignée',
+        ]),
+        Assert\Length([
+            'min' => 1,
+            'max' => 75,
+            'minMessage' => 'La ville doit faire au moins 1 caractère',
+            'maxMessage' => 'La ville doit faire au maximum 75 caractères',
+        ])
+    ]
     private ?string $city = null;
 
     #[ORM\OneToMany(mappedBy: 'postalAddress', targetEntity: User::class)]

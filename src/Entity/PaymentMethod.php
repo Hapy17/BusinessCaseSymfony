@@ -7,6 +7,7 @@ use App\Repository\PaymentMethodRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PaymentMethodRepository::class)]
 #[ApiResource(
@@ -23,6 +24,18 @@ class PaymentMethod
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
+    #[
+        Assert\NotBlank([
+            'message'=> 'Le mode de paiement doit être renseigné',
+        ]),
+        Assert\Length([
+            'min' => 2,
+            'max' => 50,
+            'minMessage' => 'Le mode de paiement doit faire au moins 2 caractères',
+            'maxMessage' => 'Le mode de paiement doit faire au maximum 50 caractères',
+        ])
+
+    ]
     private ?string $denomination = null;
 
     #[ORM\OneToMany(mappedBy: 'paymentMethod', targetEntity: Order::class)]

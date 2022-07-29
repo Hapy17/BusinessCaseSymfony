@@ -6,6 +6,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ContainRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ContainRepository::class)]
 #[ApiResource(
@@ -22,6 +23,20 @@ class Contain
     private ?int $id = null;
 
     #[ORM\Column]
+    #[
+        Assert\NotBlank([
+            "message" => "La quantité est obligatoire",
+        ]),
+        Assert\GreaterThanOrEqual([
+            "value" => 0,
+            "message" => "La quantité doit être supérieure ou égale à 0",
+        ]),
+        Assert\LessThanOrEqual([
+            "value" => 50,
+            "message" => "La quantité doit être inférieure ou égale à 50",
+        ]),
+
+    ]
     private ?int $quantity = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 6, scale: '0')]

@@ -10,6 +10,8 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ApiResource(
@@ -32,30 +34,107 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
+    #[
+        Assert\NotBlank([
+            'message'=> 'L\'email doit être renseigné',
+        ]),
+        Assert\Email([
+            'message'=> 'L\'email doit être valide',
+        ]),
+        Assert\Length([
+            'min' => 2,
+            'max' => 180,
+            'minMessage' => 'L\'email doit faire au moins 2 caractères',
+            'maxMessage' => 'L\'email doit faire au maximum 180 caractères',
+        ])
+    ]
     private ?string $email = null;
 
     #[ORM\Column(length: 180, unique: true)]
+    #[
+        Assert\NotBlank([
+            'message'=> 'Le pseudo doit être renseigné',
+        ]),
+        Assert\Length([
+            'min' => 2,
+            'max' => 180,
+            'minMessage' => 'Le pseudo doit faire au moins 2 caractères',
+            'maxMessage' => 'Le pseudo doit faire au maximum 180 caractères',
+        ])
+    ]
     private ?string $username = null;
 
     #[ORM\Column]
+    
     private array $roles = [];
 
     /**
      * @var string The hashed password
      */
     #[ORM\Column]
+    #[
+        Assert\NotBlank([
+            'message'=> 'Le mot de passe doit être renseigné',
+        ]),
+        Assert\Length([
+            'min' => 8,
+            'max' => 255,
+            'minMessage' => 'Le mot de passe doit faire au moins 8 caractères',
+            'maxMessage' => 'Le mot de passe doit faire au maximum 255 caractères',
+        ])
+    ]
     private ?string $password = null;
 
     #[ORM\Column(length: 50)]
+    #[
+        Assert\NotBlank([
+            'message'=> 'Le nom doit être renseigné',
+        ]),
+        Assert\Length([
+            'min' => 2,
+            'max' => 50,
+            'minMessage' => 'Le nom doit faire au moins 2 caractères',
+            'maxMessage' => 'Le nom doit faire au maximum 50 caractères',
+        ])
+    ]
     private ?string $firstName = null;
 
     #[ORM\Column(length: 50)]
+    #[
+        Assert\NotBlank([
+            'message'=> 'Le prénom doit être renseigné',
+        ]),
+        Assert\Length([
+            'min' => 2,
+            'max' => 50,
+            'minMessage' => 'Le prénom doit faire au moins 2 caractères',
+            'maxMessage' => 'Le prénom doit faire au maximum 50 caractères',
+        ])
+    ]
     private ?string $lastName = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[
+        Assert\NotBlank([
+            'message'=> 'La date de naissance doit être renseignée',
+        ]),
+        Assert\LessThan([
+            'value' => '-18 years',
+            'message' => 'Vous devez être majeur pour vous inscrire',
+        ])
+    ]
     private ?\DateTimeInterface $birthAt = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[
+        Assert\NotBlank([
+            'message'=> 'La date d\'inscription doit être renseignée',
+        ]),
+        Assert\LessThan([
+            'value' => 'now',
+            'message' => 'La date d\'inscription doit être antérieure à la date actuelle',
+        ])
+    ]
     private ?\DateTimeInterface $createdAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'users')]

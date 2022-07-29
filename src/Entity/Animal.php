@@ -7,6 +7,7 @@ use App\Repository\AnimalRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: AnimalRepository::class)]
 #[ApiResource(
@@ -23,6 +24,16 @@ class Animal
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
+    #[
+        Assert\NotBlank([
+            "message" => "L'espèce est obligatoire",
+        ]),
+        Assert\Length([
+            'message' => 'L\'espèce doit faire au moins entre 2 et 50 caractères',
+            'min' => 2,
+            'max' => 50,
+        ]),
+    ]
     private ?string $species = null;
 
     #[ORM\ManyToMany(targetEntity: Product::class, mappedBy: 'animals')]
