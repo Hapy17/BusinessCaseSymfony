@@ -9,6 +9,12 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: GenderRepository::class)]
+#[ApiResource(
+    collectionOperations: [],
+    itemOperations: [
+        "get" => ["security" => "is_granted('ROLE_ADMIN')"],
+        ]
+)]
 class Gender
 {
     #[ORM\Id]

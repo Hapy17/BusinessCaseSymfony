@@ -7,6 +7,12 @@ use App\Repository\PictureRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PictureRepository::class)]
+#[ApiResource(
+    collectionOperations: [],
+    itemOperations: [
+        "get" => ["security" => "is_granted('ROLE_ADMIN')"],
+        ]
+)]
 class Picture
 {
     #[ORM\Id]
