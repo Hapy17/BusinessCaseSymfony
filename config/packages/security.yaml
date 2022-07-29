@@ -8,7 +8,7 @@ security:
         app_user_provider:
             entity:
                 class: App\Entity\User
-                property: email
+                property: username
 
     role_hierarchy:
         ROLE_STATS: ROLE_USER
@@ -23,7 +23,7 @@ security:
             provider: app_user_provider
             json_login:
                 check_path: /authentication_token
-                username_path: email
+                username_path: username
                 password_path: password
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
