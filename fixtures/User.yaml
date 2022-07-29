@@ -1,5 +1,6 @@
 parameters:
     password: '$2y$13$vldgApLZb5YMp51QTlLTyOSQf.TTiDYfd55FuaF6ZV2TAAdgE3enG' # 1234
+    passwordAdmin: '$2y$13$h1nCgKNQ7Fdd34d0ZqoMeOZn0jyWjUSf1DH6uC3PhMjVfS5ZVnMaO' #Issou2021
 App\Entity\User:
     account (template):
         email: '<email()>'
@@ -17,14 +18,14 @@ App\Entity\User:
     account_admin (extends account):
         email: 'admin@admin.com'
         username: 'LaTerreEstPlate'
-        password: '$2y$13$h1nCgKNQ7Fdd34d0ZqoMeOZn0jyWjUSf1DH6uC3PhMjVfS5ZVnMaO' #Issou2021
+        password: '<{passwordAdmin}>' #Issou2021
         firstName: 'Admin'      
         roles: ['ROLE_ADMIN']
 
     account_stats (extends account):
         email: 'stats@admin.com'
         username: 'LaFaceCachéeDeLaLune'
-        password: '$2y$13$h1nCgKNQ7Fdd34d0ZqoMeOZn0jyWjUSf1DH6uC3PhMjVfS5ZVnMaO' #Issou2021
+        password: '<{passwordAdmin}>' #Issou2021
         firstName: 'Stats'      
         roles: ['ROLE_STATS']
 
