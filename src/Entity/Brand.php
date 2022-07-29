@@ -9,14 +9,6 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: BrandRepository::class)]
-#[ApiResource(
-    collectionOperations: [
-        'get' => ['security' => 'is_granted("ROLE_ADMIN")'],
-    ],
-    itemOperations: [
-        'get' => ['security' => 'is_granted("ROLE_ADMIN")' ],
-    ],
-)]
 class Brand
 {
     #[ORM\Id]

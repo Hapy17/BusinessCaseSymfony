@@ -11,10 +11,14 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table(name: '`order`')]
 #[ApiResource(
     collectionOperations: [
-        'get' => ['security' => 'is_granted("ROLE_ADMIN")'],
+        'get' => ['security' => 'is_granted("ROLE_STATS")'],
+        'post' => ['security' => 'is_granted("ROLE_ADMIN")'],
     ],
     itemOperations: [
-        'get' => ['security' => 'is_granted("ROLE_ADMIN")' ],
+        'get' => ['security' => 'is_granted("ROLE_STATS")' ],
+        'put' => ['security' => 'is_granted("ROLE_ADMIN")' ],
+        'delete' => ['security' => 'is_granted("ROLE_ADMIN")' ],
+        'patch' => ['security' => 'is_granted("ROLE_ADMIN")' ],
     ],
 )]
 class Order
