@@ -3,6 +3,7 @@ parameters:
 App\Entity\User:
     account (template):
         email: '<email()>'
+        username (unique): '<username()>'
         roles: ['ROLE_USER']
         password: '<{password}>'
         firstName: '<firstName()>'
@@ -14,9 +15,17 @@ App\Entity\User:
         gender: '@gender*'
 
     account_admin (extends account):
-        email: 'admin@test.com' #à changer pour le final en LaTerreEstPlate@admin.com
+        email: 'admin@admin.com'
+        username: 'LaTerreEstPlate'
+        password: '$2y$13$h1nCgKNQ7Fdd34d0ZqoMeOZn0jyWjUSf1DH6uC3PhMjVfS5ZVnMaO' #Issou2021
         firstName: 'Admin'      
         roles: ['ROLE_ADMIN']
-        # Changer le mot de passe pour le final en Issou2021
+
+    account_stats (extends account):
+        email: 'stats@admin.com'
+        username: 'LaFaceCachéeDeLaLune'
+        password: '$2y$13$h1nCgKNQ7Fdd34d0ZqoMeOZn0jyWjUSf1DH6uC3PhMjVfS5ZVnMaO' #Issou2021
+        firstName: 'Stats'      
+        roles: ['ROLE_STATS']
 
     account0{0..105} (extends account): ~
