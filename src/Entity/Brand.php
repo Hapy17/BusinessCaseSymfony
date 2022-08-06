@@ -29,7 +29,6 @@ class Brand
             "message" => "Le nom de la marque est obligatoire",
         ]),
         Assert\Length([
-            'message' => 'Le nom de la marque doit faire au moins entre 2 et 50 caractères',
             'min' => 2,
             'max' => 50,
         ]),

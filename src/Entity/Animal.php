@@ -29,7 +29,6 @@ class Animal
             "message" => "L'espèce est obligatoire",
         ]),
         Assert\Length([
-            'message' => 'L\'espèce doit faire au moins entre 2 et 50 caractères',
             'min' => 2,
             'max' => 50,
         ]),

@@ -29,7 +29,6 @@ class Category
             "message" => "Le nom de la catégorie est obligatoire",
         ]),
         Assert\Length([
-            'message' => 'Le nom de la catégorie doit faire au moins entre 2 et 50 caractères',
             'min' => 2,
             'max' => 50,
         ]),
