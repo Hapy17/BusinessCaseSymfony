@@ -20,10 +20,10 @@ Encore
      * Each entry will result in one JavaScript file (e.g. app.js)
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
-    .addEntry('front_scripts', './assets/front/scripts/main.js')
+    .addEntry('front_scripts', './assets/front/scripts/main.ts')
     .addStyleEntry('front_styles', './assets/front/styles/main.scss')
 
-    .addEntry('back_scripts', './assets/back/scripts/main.js')
+    .addEntry('back_scripts', './assets/back/scripts/main.ts')
     .addStyleEntry('back_styles', './assets/back/styles/main.scss')
     
 

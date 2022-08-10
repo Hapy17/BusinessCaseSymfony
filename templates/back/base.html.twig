@@ -14,6 +14,18 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+
+        <div class="row bg-dark">
+
+            <div class="col-2">
+                {% include 'back/partials/_menu.html.twig' %}
+            </div>
+
+            <div class="col-10">
+                {% block body %}
+                {% endblock %}
+            </div>
+
+        </div>
     </body>
 </html>

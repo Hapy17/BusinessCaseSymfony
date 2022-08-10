@@ -1,0 +1,22 @@
+body{
+    background-color: $backgroundColor;
+    color: $textColor;
+}
+
+.menu-active{
+    font-size: 1.2rem;
+    color: $textColorLight;
+}
+
+h4{
+    color: $textColor;
+}
+
+a{
+    text-decoration: none;
+    color: $textColor;
+
+    &:hover{
+        color: $textColorLight;
+    }
+}

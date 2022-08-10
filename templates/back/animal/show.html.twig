@@ -1,0 +1,28 @@
+{% extends 'back/base.html.twig' %}
+
+{% block title %}
+    Détails Animal
+{% endblock %}
+
+{% block body %}
+    <h1>Animal</h1>
+
+    <table class="table table-dark table-hover">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ animal.id }}</td>
+            </tr>
+            <tr>
+                <th>Espèce</th>
+                <td>{{ animal.species }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_animal_edit', {'id': animal.id}) }}">Modifier</a>
+    <a href="{{ path('app_admin_animal_index') }}">Retour à la liste</a>
+
+
+    {{ include('back/animal/_delete_form.html.twig') }}
+{% endblock %}
