@@ -4,7 +4,9 @@ namespace App\Repository;
 
 use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\DBAL\Query\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
+
 
 /**
  * @extends ServiceEntityRepository<Product>
@@ -16,7 +18,10 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class ProductRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public function __construct(
+        ManagerRegistry $registry
+
+        )
     {
         parent::__construct($registry, Product::class);
     }
@@ -37,6 +42,18 @@ class ProductRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    public function getBestRatingProducts()
+    {
+        return $this->createQueryBuilder('p')
+            ->select('p')
+            ->join('p.reviews', 'review')
+            ->orderBy('review.rating', 'DESC')
+            ->where('p.isActive = true')
+            // ->setMaxResults(3)
+            ->getQuery()
+            ->getResult();
     }
 
 //    /**

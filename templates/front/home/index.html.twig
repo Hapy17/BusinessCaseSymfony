@@ -1,0 +1,10 @@
+{% extends 'front/base.html.twig' %}
+
+{% block body %}
+
+{% for product in bestRatingProducts | slice(0, 5) %}
+{# TODO: finir de faire les cartes de produits #}
+    {% include 'front/partials/_cardProduct.html.twig' with { 'product':product } %}
+{% endfor %}
+
+{% endblock %}
