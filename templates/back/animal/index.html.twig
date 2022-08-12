@@ -7,35 +7,36 @@
 {% block body %}
     <h1>Index Animaux</h1>
 
-    <table class="table table-hover table-dark table-striped ">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Espèces</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for animal in animals %}
-            <tr>
-                <td>{{ animal.id }}</td>
-                <td>{{ animal.species }}</td>
-                <td>
-                    <a href="{{ path('app_admin_animal_show', {'id': animal.id}) }}">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </a>
-                    <a href="{{ path('app_admin_animal_edit', {'id': animal.id}) }}">
-                        <i class="fa-solid fa-pen"></i>
-                    </a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">Aucune entrée trouvée</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="col-8 mx-auto">
+        <table class="table table-hover table-dark table-striped ">
+            <thead>
+                <tr>
+                    <th>Espèces</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for animal in animals %}
+                <tr>
+                    <td>{{ animal.species }}</td>
+                    <td>
+                        <a href="{{ path('app_admin_animal_show', {'id': animal.id}) }}">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+                        <a href="{{ path('app_admin_animal_edit', {'id': animal.id}) }}">
+                            <i class="fa-solid fa-pen"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">Aucune entrée trouvée</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
     <a href="{{ path('app_admin_animal_new') }}">Créer une nouvelle espèce</a>
+
 {% endblock %}

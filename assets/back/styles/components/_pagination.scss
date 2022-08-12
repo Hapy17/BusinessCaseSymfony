@@ -1,0 +1,26 @@
+.pagination {
+
+    .current {
+        color: $backgroundColor;
+        border-radius: 2.5rem;
+        text-decoration: none;
+        padding: 0.2rem 0.8rem;
+        background-color: $lightColor
+    }
+
+    .page, .first, .last, .previous, .next {
+        > a {
+            color: $lightColor;
+            margin-left: 0.2rem;
+            margin-right: 0.2rem;
+            border-radius: 2.5rem;
+            text-decoration: none;
+            padding: 0.2rem 0.8rem;
+            background-color: lighten($backgroundColor, 10%);
+    
+            &:hover {
+                background-color: darken($lightColor,20%);
+            }
+        }
+    }
+}

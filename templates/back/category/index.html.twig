@@ -3,33 +3,39 @@
 {% block body %}
     <h1>Index des categories</h1>
 
-    <table class="table table-hover table-dark table-striped ">
-        <thead>
-            <tr>
-                <th>Label</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for category in categories %}
-            <tr>
-                <td>{{ category.label }}</td>
-                <td>
-                    <a href="{{ path('app_admin_category_show', {'id': category.id}) }}">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </a>
-                    <a href="{{ path('app_admin_category_edit', {'id': category.id}) }}">
-                        <i class="fa-solid fa-pen"></i>
-                    </a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="col-8 mx-auto">
+        <table class="table table-hover table-dark table-striped ">
+            <thead>
+                <tr>
+                    <th>Label</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td>{{ category.label }}</td>
+                    <td>
+                        <a href="{{ path('app_admin_category_show', {'id': category.id}) }}">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+                        <a href="{{ path('app_admin_category_edit', {'id': category.id}) }}">
+                            <i class="fa-solid fa-pen"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="navigation d-flex justify-content-center my-3">
+                {{ knp_pagination_render(categories) }}
+        </div>
+    </div>
 
     <a href="{{ path('app_admin_category_new') }}">Créer une nouvelle catégorie</a>
+    
 {% endblock %}

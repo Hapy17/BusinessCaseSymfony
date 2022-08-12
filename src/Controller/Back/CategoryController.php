@@ -22,10 +22,16 @@ class CategoryController extends AbstractController
         ): Response
     {
 
-        $qb = $categoryRepository->createQueryBuilder('c');
+        $qb = $categoryRepository->getQbAll();
+
+        $category = $paginator->paginate(
+            $qb,
+            $request->query->getInt('page', 1),
+            8
+        );
 
         return $this->render('back/category/index.html.twig', [
-            'categories' => $categoryRepository->findAll(),
+            'categories' => $category,
         ]);
     }
 
