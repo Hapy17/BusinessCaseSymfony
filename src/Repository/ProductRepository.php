@@ -51,7 +51,7 @@ class ProductRepository extends ServiceEntityRepository
             ->join('p.reviews', 'review')
             ->orderBy('review.rating', 'DESC')
             ->where('p.isActive = true')
-            // ->setMaxResults(3)
+            ->setMaxResults(5)
             ->getQuery()
             ->getResult();
     }

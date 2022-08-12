@@ -62,6 +62,9 @@
             "./fixtures/.gitignore"
         ]
     },
+    "knplabs/knp-paginator-bundle": {
+        "version": "v5.8.0"
+    },
     "knplabs/knp-snappy-bundle": {
         "version": "1.9",
         "recipe": {

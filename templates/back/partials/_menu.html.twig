@@ -1,8 +1,14 @@
-<div class="ps-4 pt-4">
+<div class="d-flex flex-column ps-4 pt-4">
 
     <h4>Animaux</h4>
     <a class="ps-2 {% if app.request.pathinfo == path('app_admin_animal_index') %}menu-active{% endif %}" href=" {{path('app_admin_animal_index')}}">Liste des animaux</a>
     <a class="ps-2 {% if app.request.pathinfo == path('app_admin_animal_new') %}menu-active{% endif %}" href=" {{path('app_admin_animal_new') }} ">Ajouter un animal</a>
+
+    <hr>
+
+    <h4>Categories</h4>
+    <a class="ps-2 {% if app.request.pathinfo == path('app_admin_category_index') %}menu-active{% endif %}" href=" {{path('app_admin_category_index')}}">Liste des catégories</a>
+    <a class="ps-2 {% if app.request.pathinfo == path('app_admin_category_new') %}menu-active{% endif %}" href=" {{path('app_admin_category_new') }} ">Ajouter une catégorie</a>
 
     <hr>
 

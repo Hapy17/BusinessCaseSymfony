@@ -63,4 +63,10 @@ class CategoryRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+    public function createQueryBuilder($alias)
+    {
+        return parent::createQueryBuilder($alias)
+            ->orderBy($alias . '.id', 'ASC');
+    }
 }
