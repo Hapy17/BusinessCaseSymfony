@@ -1,0 +1,74 @@
+
+
+div#top-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+div.iconsMobile{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div .user-icons{
+    margin-left: .5rem;
+    margin-right: .5rem;
+}
+
+div.user-account{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div.user-name{
+        display: flex;
+        flex-direction: column;
+        
+    }
+}
+
+div.user-favorites{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.user-basket{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div .navMobile{
+    display: none;
+}
+
+// Mise en place du reponsive -----------------
+@media (max-width: 768px) {
+
+    div#top-header{
+        display: flex;
+        flex-direction: column;
+    }
+
+    div.user-account div.user-name, div.user-favorites, div.user-basket .nbArticleBasket{
+        display:none;
+    }
+
+    form#navForm{
+        display: none;
+    }
+
+    nav{
+        display:none;
+    }
+
+    div .navMobile{
+        display: flex;
+        justify-content: flex-end;
+    }
+}

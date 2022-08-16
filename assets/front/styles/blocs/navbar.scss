@@ -1,0 +1,35 @@
+nav {
+    
+    height: 50px;
+    padding-top: .4rem;
+    padding-bottom: .4rem;
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+nav ul li a{
+    display: flex;
+    align-items: center;
+    height: 35px;
+}
+nav ul li {
+
+    align-self: center;
+    
+    &:first-child a::before{
+            content: url(../assets/icons/icon_menu.svg);
+            margin-top: 1px;
+            margin-right: 2px;
+            }
+    
+    &:last-child a::before{
+            content: url(../assets/icons/icon_ship.svg);
+            margin-top: 1px;
+            margin-right: 2px;
+            }
+}
+

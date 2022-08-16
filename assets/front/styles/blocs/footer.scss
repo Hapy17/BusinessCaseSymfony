@@ -1,0 +1,27 @@
+footer div.footer-links{
+    display: flex;
+    justify-content: left;
+    width: fit-content;
+    padding-top: 1rem;
+    margin: 2rem 0rem;
+
+
+    div{
+        margin-right: 1.5rem;
+
+        ul{
+            margin-left: -2rem;
+
+            li{
+                list-style-type: none;
+            }
+        }
+        
+    }
+}
+
+div.footer-copyright p{
+    width: fit-content;
+    margin: auto;
+    padding-bottom: .5rem;
+}

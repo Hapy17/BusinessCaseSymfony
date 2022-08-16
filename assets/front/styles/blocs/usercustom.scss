@@ -1,0 +1,16 @@
+section.user-custom{
+    width: $widthperso;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+
+    p.user-custom-title{
+        font-size: 1.5rem;
+        padding-bottom: 1rem;
+    }
+
+    div{
+        display: flex;
+    }
+}

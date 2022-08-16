@@ -1,0 +1,14 @@
+a.button{
+    background-color: $green;
+    color: $light;
+    text-decoration: none;
+    padding: 6px 20px;
+    width: fit-content;
+    border: 1px solid $green;
+
+    &:hover{
+        background-color:$light;
+        color: $green;
+        border: 1px solid $green;
+    }
+}

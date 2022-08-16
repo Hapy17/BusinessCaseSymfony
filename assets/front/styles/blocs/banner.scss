@@ -1,0 +1,30 @@
+section.banner{
+    height: 600px;
+    filter: contrast(1.1);
+    display: flex;
+    background-position: center;
+    margin-bottom: 1rem;
+
+
+
+    div{
+        margin: auto;
+        width: $widthperso;
+        display: flex;
+        flex-direction: column;
+
+
+        div.bg-effect-glass{
+            height : 300px;
+            width : 540px;
+            backdrop-filter: blur(5px);
+            padding-left: 1rem;
+            margin-left: 0;
+            justify-content: space-around;
+        }
+    }
+}
+
+div.bg-effect-glass h1 + p{
+    text-shadow: 1px 0px 5px black;
+}

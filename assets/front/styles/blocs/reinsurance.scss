@@ -1,0 +1,11 @@
+section.reinsurance div.reinsurance-cards{
+    display: flex;
+    justify-content: space-between;
+
+    div.reinsurance-card{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+    }
+}

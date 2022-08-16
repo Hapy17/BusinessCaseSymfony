@@ -1,0 +1,39 @@
+
+div.offcanvas-header{
+  background-color: $green;
+}
+  
+h3.offcanvas-title{
+  font-family: 'Amatic SC',cursive;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 3rem;
+  padding-left: 1rem;
+  color: $light;
+  z-index: 1; 
+  top: 0;
+  left: 0;
+}
+
+div.sidelinknavbar{
+
+
+  ul{
+    list-style-type:none;
+    margin-left: -1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  li {
+
+    a{
+      color: $dark;
+
+      &:hover{
+        color: $darkgreen;
+      }
+    }
+  }
+
+
+}

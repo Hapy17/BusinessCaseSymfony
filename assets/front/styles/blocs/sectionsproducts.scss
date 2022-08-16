@@ -1,0 +1,31 @@
+section {
+
+    margin-bottom: 3rem !important;
+    height: fit-content;
+
+    div.products{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+div.product-card{
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+
+
+    div.product-card-footer{
+        // height: 180px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    a.button{
+        align-self: center;
+    }
+}
+

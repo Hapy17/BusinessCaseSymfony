@@ -1,0 +1,325 @@
+// TEXT FORMAT
+body{
+    font-family: 'Oxygen',sans-serif;
+    background-color: $light;
+    font-size: 1rem;
+}
+
+section.widthcustom{
+    width: $widthperso;
+    margin: 2rem auto ;
+}
+// media query mobile de la largeur de la page
+@media (max-width: 768px) {
+    section.widthcustom{
+        width: 100%;
+    }
+}
+
+// HEADER 
+header{
+    background-color: $green;
+
+    #top-header{
+        width: $widthperso;
+        margin: auto;
+    }
+    
+    nav{
+        background-color: $white;
+        
+        ul{
+            padding-left: 0;
+            width: $widthperso;
+            margin: auto;
+        }
+    }
+}
+
+img.user-icons{
+    width: 24px;
+    margin-right: 4px;
+}
+
+#logo{
+    width: 250px;/*250px par defaut*/
+}
+
+
+
+form .search-bar::placeholder{
+    font-family: 'Oxygen',sans-serif;
+    color: $green;
+}
+
+
+header span{
+    color: $light;
+
+    &.subtitle{
+        font-size: .6rem;
+    }
+}
+
+// BANNER
+section.banner{
+    background-image: url(../assets/img/banner.png);
+    color: $light;
+
+    div.bg-effect-glass{
+        
+        backdrop-filter: blur(10%);
+        background: $white-glass ;
+        border-radius: 5px;
+    }
+}
+
+
+//BODY
+
+h1{
+    font-family: 'Amatic SC',cursive;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 4rem;
+}
+h2,h3,h4,h5{
+    font-family: 'Oxygen',sans-serif;
+    font-weight: 300;
+    text-transform: uppercase; 
+}
+
+h5.modal-title{
+    font-family: 'Amatic SC',cursive;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 2rem;
+}
+
+.connect-user, .favorite-user{
+    cursor: pointer;
+}
+
+section div h2{
+
+    position: relative;
+    overflow: hidden;
+
+    &:after {
+        display: inline-block;
+        content: "";
+        height: 4px;
+        border: 50px;
+        background: $green;
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        margin-top: -2px;
+        margin-left: 10px;
+    }
+}
+
+
+
+section h2 {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;  
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+div.product-card > img{
+    height: 160px;
+}
+
+div.product-card-footer p.product-brand{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    
+    +h3{
+        font-family: 'Oxygen', sans-serif;
+        font-weight: 400;
+        color: $grey;
+        text-transform: none;
+        font-size: .9rem;
+    }
+}
+
+div.product-card-footer p.product-price{
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        color: $red;
+}
+
+
+
+
+
+//LINKS
+header a{
+    text-decoration: none;
+    color :$light;
+
+    &:hover{
+        color: $darkgreen;
+    }
+}
+
+nav  ul li{
+    list-style: none;
+    list-style-type: none;
+    
+
+    a{
+        font-family: 'Montserrat',sans-serif; 
+        font-weight: 500;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 1rem;
+        color: $dark;
+    
+        &:hover{
+            color: $dark;
+            border-top : 3px solid $white;
+            border-bottom: 3px solid $green;
+            transition: color .07s ease;
+        }     
+    }
+}
+
+
+
+a{
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 400;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+// PERSONNAL SUGGESTIONS
+section.user-custom p:first-child{
+
+    & .text-green{
+        color: $green;
+    }
+}
+
+section.user-custom .thumbnail-title{
+    width: 100%;
+    color: $light;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+    background: linear-gradient( #cecece00 0%, #000000 90%);
+
+}
+
+
+div.thumbnail{
+    width:310px;
+    height:310px;
+    display: flex;
+    align-items: flex-end;
+    margin-right: 10px;
+    background-repeat: no-repeat;  
+    background-size: cover; 
+
+    p{
+        margin-bottom: 0rem !important;
+    }
+
+    // &:hover{
+    //     align-items: center;
+    // }
+    // TODO : voir pour une transition plus fluide 
+    
+}
+
+div.thumbnail:nth-child(1){
+    background-image: url(../assets/img/space.png);
+    
+}
+div.thumbnail:nth-child(2){
+    background-image: url(../assets/img/wolf.png);
+      
+}
+div.thumbnail:nth-child(3){
+    background-image: url(../assets/img/dog.png);
+    margin-right: 0;
+}
+// PERSONNAL SUGGESTIONS
+
+
+// TEMOIGNAGES
+div.testimonial{
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+
+    div.testimonial-user p{
+        color: $darkgreen;
+    }
+}
+// TEMOIGNAGES
+
+
+// REINSURANCE
+div.reinsurance-card img {
+    height: 100px;
+    width: auto;
+
+        +p{
+            font-family: 'Oxygen', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: -1px;
+            color: $darkgreen;
+        }
+}
+
+// REINSURANCE
+
+// FOOTER
+footer{
+    background-color: $darkgreen;
+    color: $light;
+
+    div.widthcustom{
+        width: $widthperso;
+        margin: auto;
+    }
+
+    a{
+        text-decoration: none;
+        color: $light;
+
+        &:visited{
+            color: $lightgreen;
+        }
+
+        &:hover{
+            color:$yellow;
+        }
+    }
+
+}
+
+div.footer-links div h4 {
+    font-family: 'Montserrat',sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    +ul>li{
+        font-family: 'Oxygen',sans-serif;
+        font-weight: 400;
+    }
+}
+// FOOTER

@@ -1,0 +1,52 @@
+
+
+div.totalBasket{
+
+    padding-right: 2rem;
+    padding-top: 1rem;
+    text-align: end;
+
+    div.article {
+
+      margin-bottom: 1rem;
+
+      h4 {
+        color: $dark;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+
+      }
+    }
+
+    p.price {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      color: $red;
+    }
+} 
+
+
+
+div.confirmCommand{
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  justify-content: center;
+
+  h4.total {
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+    color: $dark;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+}
+

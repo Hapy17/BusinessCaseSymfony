@@ -1,0 +1,82 @@
+form {
+    background-color: $white;
+    border: .5px solid $green;
+    position: relative;
+    width: 290px;
+    height: 30px;
+
+    }
+form>label{
+    display: none;
+}
+form input.search-bar{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 5px;
+    right: 25px;
+    width: 260px;
+    border: none;
+    background-color: none;
+
+    &:focus-visible{
+        outline: none;
+    }
+
+    &::placeholder {
+        font-size: 1rem;
+    }
+}
+
+form input{
+
+    &.search-submit{
+
+        position: absolute;
+        background: none;
+        border: none;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        background-image: url(../assets/icons/icon_search.svg);
+        background-size: cover;
+    
+    }
+
+    &.search-user{
+
+        
+        position: absolute;
+        background: none;
+        border: none;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        background-image: url(../assets/icons/icon_mail.svg);
+        fill : $green;
+        background-size: cover;
+
+    }
+
+    &.search-pswrd{
+
+        
+        position: absolute;
+        background: none;
+        border: none;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        background-image: url(../assets/icons/icon_password.svg);
+        background-size: cover;
+    }
+
+    
+}
+

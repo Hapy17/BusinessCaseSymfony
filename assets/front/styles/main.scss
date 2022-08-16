@@ -1,1 +1,28 @@
 @import "../../shared/styles/main";
+
+// RESET PERSO
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+// RESET PERSO
+
+// MY CSS
+@import"_variables";
+@import"_text-format";
+
+@import"components/button";
+@import"components/searchbar";
+
+@import"blocs/authenticationModal";
+@import"blocs/header";
+@import"blocs/navbar";
+@import"blocs/sidenavbar";
+@import"blocs/sidebasket";
+@import"blocs/banner";
+@import"blocs/usercustom";
+@import"blocs/sectionsproducts";
+@import"blocs/testimonials";
+@import"blocs/reinsurance";
+@import"blocs/footer";

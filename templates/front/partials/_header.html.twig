@@ -1,0 +1,219 @@
+<header>
+    <!-- TOP-HEADER -->
+    <div id="top-header">
+        <!-- LOGO -->
+        <img src="assets/icons/logo.png" alt="Logo la Nîme'alerie" id="logo">
+        <!-- /LOGO -->
+        <!-- SEARCHBAR -->
+        <form class="search-form" id="navForm" action="#" method="post">
+            <!-- <label for="searchbar">Rechercher</label> -->
+            <input class="search-bar" id="searchbar" type="text" name="searchbar" placeholder="Recherche un produit" />
+            <div class="submit">
+                <input class="search-submit" type="submit" value="">
+            </div>
+        </form>
+        <!-- /SEARCHBAR -->
+        <div class="iconsMobile">
+            <!-- NAVIGATION MOBILE -->
+            <div>
+                <img src="assets/icons/icon_menu.svg" alt="Icone du menu mobile" class="navMobile">
+            </div>
+            <!-- USER LOG -->
+            <div class="user-account">
+                <img src="assets/icons/icon_user.svg" alt="Icone de l'utilisateur" class="user-icons">
+                <div class="user-name">
+                    <span class="connect-user" data-bs-toggle="modal" data-bs-target="#authenticationModal">Se connecter</span>
+                </div>
+                <!-- <div class="user-name">
+                        <span>Bonjour, Hapy</span>
+                        <span class="subtitle"><a href=""  data-bs-toggle="modal" data-bs-target="#authenticationModal">Accéder à mon compte</a></span>
+                    </div> -->
+            </div>
+            <!-- /USER LOG -->
+            <!-- FAVORITES -->
+            <div class="user-favorites">
+                <img src="assets/icons/icon_heartempty_white.svg" alt="Icone des favoris" class="user-icons">
+                <span class="favorite-user">Liste d'envies</span>
+            </div>
+            <!-- /FAVORITES -->
+            <!-- BASKET -->
+            <div class="user-basket">
+                <img src="assets/icons/icon_basket.svg" alt="Icone des favoris" class="user-icons" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                <span><a data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class='nbArticleBasket'>2 articles</a></span>
+            </div>
+            <!-- /BASKET -->
+        </div>
+    </div>
+    <!-- /TOP-HEADER -->
+    <!-- NAVBAR -->
+    <nav>
+        <ul>
+            <!-- onclick="openNav()" -->
+            <li><a data-bs-toggle="offcanvas" data-bs-target="#sideNav" aria-controls="sideNav">Catégories</a></li>
+            <li><a href="">Chien</a></li>
+            <li><a href="">Chat</a></li>
+            <li><a href="">Rongeur & co</a></li>
+            <li><a href="">Oiseau</a></li>
+            <li><a href="">Wildlife</a></li>
+            <li><a href="">Offre spéciale</a></li>
+        </ul>
+    </nav>
+    <!-- /NAVBAR -->
+
+    <!-- Side basket bootstrap -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h3 class="offcanvas-title" id="offcanvasRightLabel">Panier</h3>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body totalBasket">
+            <div class="article">
+                <h4> 1x MULTIFIT</h4>
+                <p>Mégapack pâtisserie 10 kg</p>
+                <p class="price">69,90 €</p>
+            </div>
+            <div class="article">
+                <h4> 2x Royal Canin</h4>
+                <p>Croquettes sac de 5kg</p>
+                <p class="price">49,99 €</p>
+            </div>
+        </div>
+        <div class="confirmCommand">
+            <h4 class="total">Total = 169,79€</h4>
+            <a href="" class="button">Payer la commande</a>
+        </div>
+
+    </div>
+    <!-- /Side basket bootstrap -->
+
+
+    <!-- Side NAvbar Bootstrap -->
+    <div class="offcanvas offcanvas-start " tabindex="-1" id="sideNav" aria-labelledby="sideNavLabel">
+        <div class="offcanvas-header ">
+            <h3 class="offcanvas-title" id="sideNavLabel">Catégories</h3>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="sidelinknavbar">
+                <ul>
+                    <!-- CHIEN -->
+                    <li>
+                        <ul>
+                            <li>
+                                <h4>CHIEN</h4>
+                            </li>
+                            <li><a href="">Nourriture</a></li>
+                            <li><a href="">Couchages</a></li>
+                            <li><a href="">Soins & Hygiènes</a></li>
+                            <li><a href="">Jouets</a></li>
+                            <li><a href="">Dressage</a></li>
+                        </ul>
+                    </li>
+                    <!-- /CHIEN -->
+                    <!-- CHATS -->
+                    <li>
+                        <ul>
+                            <li>
+                                <h4>CHAT</h4>
+                            </li>
+                            <li><a href="">Nourriture</a></li>
+                            <li><a href="">Couchages</a></li>
+                            <li><a href="">Soins & Hygiènes</a></li>
+                            <li><a href="">Jouets</a></li>
+                            <li><a href="">Griffoirs</a></li>
+                        </ul>
+                    </li>
+                    <!-- /CHATS -->
+                    <!-- RONGEUR & CO -->
+                    <li>
+                        <ul>
+                            <li>
+                                <h4>RONGEUR & CO</h4>
+                            </li>
+                            <li><a href="">Nourriture</a></li>
+                            <li><a href="">Maisonnettes</a></li>
+                            <li><a href="">Soins & Hygiènes</a></li>
+                            <li><a href="">Jouets</a></li>
+                        </ul>
+                    </li>
+                    <!-- /RONGEUR & CO -->
+                    <!-- OISEAU -->
+                    <li>
+                        <ul>
+                            <li>
+                                <h4>OISEAU</h4>
+                            </li>
+                            <li><a href="">Nourriture</a></li>
+                            <li><a href="">Cages & Perchoirs</a></li>
+                            <li><a href="">Soins & Hygiènes</a></li>
+                            <li><a href="">Jouets</a></li>
+                        </ul>
+                    </li>
+                    <!-- /OISEAU -->
+                    <!-- WILDLIFE -->
+                    <li>
+                        <ul>
+                            <li>
+                                <h4>WILDLIFE</h4>
+                            </li>
+                            <li><a href="">Concours photos</a></li>
+                        </ul>
+                    </li>
+                    <!-- /WILDLIFE -->
+                    <!-- SPACETOUR -->
+                    <li>
+                        <ul>
+                            <li>
+                                <h4>SPACETOUR</h4>
+                            </li>
+                            <li><a href="">Envoyer votre animal dans l'espace</a></li>
+                        </ul>
+                    </li>
+                    <!-- /SPACETOUR -->
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <!-- /Side NAvbar Bootstrap -->
+    <!-- MODAL CONNEXION -->
+    <!-- Modal -->
+    <div class="modal fade" id="authenticationModal" tabindex="-1" aria-labelledby="authenticationModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header mx-auto">
+                    <h5 class="modal-title" id="authenticationModalLabel">Authentification</h5>
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                </div>
+                <div class="modal-body mx-auto">
+                    <!-- Saisie du mail -->
+                    <form class="search-form mail-form" action="#" method="post">
+                        <!-- <label for="searchbar">Rechercher</label> -->
+                        <input class="search-bar" type="mail" name="mail" placeholder="Mail" />
+                        <div class="submit">
+                            <input class="search-user" type="submit" value="">
+                        </div>
+                    </form>
+                    <!-- /Saisie du mail -->
+                    <!-- Saisie du PassWord -->
+                    <form class="search-form" action="#" method="post">
+                        <!-- <label for="searchbar">Rechercher</label> -->
+                        <input class="search-bar" id="viewPassword" type="password" name="password" placeholder="PassWord" />
+                        <div class="submit">
+                            <input class="search-pswrd" type="submit" value="">
+                        </div>
+                    </form>
+                    <!-- /Saisie du PassWord -->
+                </div>
+                <div class="modal-footer mx-auto">
+                    <a class="button" data-bs-dismiss="modal">Fermer</a>
+                    <a class="button">Se connecter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /MODAL CONNEXION -->
+
+
+</header>
+<!-- /HEADER -->
