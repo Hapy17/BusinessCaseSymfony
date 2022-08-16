@@ -1,7 +1,7 @@
 App\Entity\Basket:
     basket{0..100}:
         createdAt: '<(new DateTime("now"))>'
-        basketStatus: '10%? 100 : 200 '
+        basketStatus: '10%? 100 : 200 ' # 10% chance to be 100 (abandonné), 90% chance to be 200
         user: '@account0*'
     basketwithcmd{0..20}:
         createdAt: '<(new DateTime("now"))>'
