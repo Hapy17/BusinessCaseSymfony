@@ -18,7 +18,7 @@
         <!-- /BANNERS -->
         <!-- USER CUSTOM PARTS -->
         <section class="user-custom widthcustom">
-            <p class="user-custom-title">Bonjour <span class="text-green">Hapy</span>, voici quelques suggestions</p>
+            <p class="user-custom-title">Bonjour{% if is_granted('ROLE_USER') %}<span class="text-green"> Hapy</span>{% endif %}, voici quelques suggestions</p>
             <div>
                 <!-- THUMBNAILS 1 -->
                 <div class="thumbnail">
@@ -91,7 +91,7 @@
         <!-- /TESTIMIONALS SECTION -->
         <!-- REINSURANCE -->
         <section class="reinsurance widthcustom">
-            <div class="reinsurance-cards">
+            <div class="reinsurance-cards d-flex flex-column flex-md-row">
                 <!-- REINSURANCE CARD 1 -->
                 <div class="reinsurance-card">
                     <img src="{{asset('build/img/icons/icon_van.svg')}}" alt="icone de livraison">

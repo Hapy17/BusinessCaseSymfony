@@ -7,5 +7,22 @@ section.reinsurance div.reinsurance-cards{
         flex-direction: column;
         justify-content: center;
 
+        img {
+            height: 100px;
+            width: auto;
+        }
+
     }
+}
+
+// responsive
+
+@media (max-width: 768px) {
+
+    p.text-reinsurance{
+        width: auto;
+        margin: auto;
+        // TODO : trouver un moyen de centrer ce texte
+
+    }  
 }

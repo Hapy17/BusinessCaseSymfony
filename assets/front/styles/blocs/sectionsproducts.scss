@@ -34,12 +34,15 @@ div.product-card{
 @media (max-width: 768px) {
 
     div.products{
+        width: 100%;
         flex-direction: column;
+        
     }
 
     div.product-card{
         height: 100%;
-        width: max-content;
+        width: fit-content;
+        margin: auto;
         margin-bottom: 1rem;
     }
 }

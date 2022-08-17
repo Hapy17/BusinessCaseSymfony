@@ -222,18 +222,14 @@ div.testimonial{
 
 
 // REINSURANCE
-div.reinsurance-card img {
-    height: 100px;
-    width: auto;
-
-        +p{
-            font-family: 'Oxygen', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            letter-spacing: -1px;
-            color: $darkgreen;
-        }
+div.reinsurance-card p{
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -1px;
+    color: $darkgreen;
 }
+
 
 // REINSURANCE
 
