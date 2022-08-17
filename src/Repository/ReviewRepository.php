@@ -39,6 +39,16 @@ class ReviewRepository extends ServiceEntityRepository
         }
     }
 
+    public function getLastReviews()
+    {
+        return $this->createQueryBuilder('r')
+            ->select('r')
+            ->orderBy('r.issuedAt', 'DESC')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Review[] Returns an array of Review objects
 //     */

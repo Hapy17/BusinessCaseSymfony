@@ -2,7 +2,7 @@
     <!-- TOP-HEADER -->
     <div id="top-header">
         <!-- LOGO -->
-        <img src="assets/icons/logo.png" alt="Logo la Nîme'alerie" id="logo">
+        <img src="{{asset('build/img/logo.png')}}" alt="Logo la Nîme'alerie" id="logo">
         <!-- /LOGO -->
         <!-- SEARCHBAR -->
         <form class="search-form" id="navForm" action="#" method="post">
@@ -16,11 +16,11 @@
         <div class="iconsMobile">
             <!-- NAVIGATION MOBILE -->
             <div>
-                <img src="assets/icons/icon_menu.svg" alt="Icone du menu mobile" class="navMobile">
+                <img src="{{asset('build/img/icon_menu.svg')}}" alt="Icone du menu mobile" class="navMobile">
             </div>
             <!-- USER LOG -->
             <div class="user-account">
-                <img src="assets/icons/icon_user.svg" alt="Icone de l'utilisateur" class="user-icons">
+                <img src="{{asset('build/img/icons/icon_user.svg')}}" alt="Icone de l'utilisateur" class="user-icons">
                 <div class="user-name">
                     <span class="connect-user" data-bs-toggle="modal" data-bs-target="#authenticationModal">Se connecter</span>
                 </div>
@@ -32,13 +32,13 @@
             <!-- /USER LOG -->
             <!-- FAVORITES -->
             <div class="user-favorites">
-                <img src="assets/icons/icon_heartempty_white.svg" alt="Icone des favoris" class="user-icons">
+                <img src="{{asset('build/img/icons/icon_heartempty_white.svg')}}" alt="Icone des favoris" class="user-icons">
                 <span class="favorite-user">Liste d'envies</span>
             </div>
             <!-- /FAVORITES -->
             <!-- BASKET -->
             <div class="user-basket">
-                <img src="assets/icons/icon_basket.svg" alt="Icone des favoris" class="user-icons" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                <img src="{{asset('build/img/icons/icon_basket.svg')}}" alt="Icone des favoris" class="user-icons" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                 <span><a data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class='nbArticleBasket'>2 articles</a></span>
             </div>
             <!-- /BASKET -->

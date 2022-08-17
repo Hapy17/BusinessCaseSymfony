@@ -1,3 +1,33 @@
-{{ product.name }}
-{{ product.priceHt }}
-{{ product.description }}
+<div class="product-card">
+                    <!-- TOP CARD -->
+    <img src="{{asset('build/img/img_product.png')}}" alt="Image du produit">
+    <!-- /TOP CARD -->
+    <!-- BOTTOM CARD -->
+    <div class="product-card-footer">
+        <!-- CARD TITLE -->
+        <p class="product-brand">{{ product.name }}</p>
+        {# <h3>{{product.description|excerpt}}</h3> #}
+        {# TODO: Trouver un moyen de reparer le excerpt pour pouvoir afficher la description #}
+        <!-- /CARD TITLE -->
+        <!-- CARD RANK -->
+        <div class="product-rank">
+            <span class="star star-full"></span>
+            <span class="star star-full"></span>
+            <span class="star star-full"></span>
+            <span class="star star-full"></span>
+            <span class="star star-empty"></span>
+        </div>
+        <!-- CARD RANK -->
+        <!-- PRICE & FAVOURITE -->
+        <div>
+            <p class="product-price">{{product.priceHt}}€</p>
+            <span class="product-favourite"></span>
+        </div>
+        <!-- /PRICE & FAVOURITE -->
+        <!-- BUTTON BASKET -->
+        <a href="" class="button">Ajouter au panier</a>
+        <!-- /BUTTON BASKET -->
+    </div>
+    <!-- /BOTTOM CARD -->
+</div>
+                <!-- /PRODUCT CARD 1 -->

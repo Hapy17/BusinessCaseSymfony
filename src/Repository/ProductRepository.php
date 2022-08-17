@@ -56,6 +56,17 @@ class ProductRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function getRandProducts()
+    {
+        return $this->createQueryBuilder('p')
+            ->select('p')
+            ->where('p.isActive = true')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult();
+    }
+
+
 //    /**
 //     * @return Product[] Returns an array of Product objects
 //     */

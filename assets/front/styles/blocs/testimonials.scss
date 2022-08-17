@@ -1,28 +1,35 @@
 section.users-testimonials div.testimonials {
     display: flex;
+   
 
 
     div.testimonial p {
         margin-bottom: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        span {
+            font-weight: 700;
+        }
     }
 
 }
 
-div.testimonial-user :last-child{
+// div.testimonial-user :last-child{
 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+//     display: flex;
+//     flex-direction: row;
+//     align-items: center;
 
-    &::before {
-        background-image: url(../../../img/users-pics/user1.png);
-        background-size: 50px 50px;
-        display: inline-block;
-        width: 50px; 
-        height: 50px;
-        content:"";
-        margin-right: 0.5rem;
-    }
-}
+//     &::before {
+//         background-image: url(../../../img/users-pics/user1.png);
+//         background-size: 50px 50px;
+//         display: inline-block;
+//         width: 50px; 
+//         height: 50px;
+//         content:"";
+//         margin-right: 0.5rem;
+//     }
+// }
 
 
