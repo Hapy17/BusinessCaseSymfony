@@ -21,13 +21,13 @@ nav ul li {
     align-self: center;
     
     &:first-child a::before{
-            content: url(../assets/icons/icon_menu.svg);
+            content: url(../../../img/icons/icon_menu.svg);
             margin-top: 1px;
             margin-right: 2px;
             }
     
     &:last-child a::before{
-            content: url(../assets/icons/icon_ship.svg);
+            content: url(../../../img/icons/icon_ship.svg);
             margin-top: 1px;
             margin-right: 2px;
             }

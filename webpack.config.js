@@ -26,6 +26,10 @@ Encore
     .addEntry('back_scripts', './assets/back/scripts/main.ts')
     .addStyleEntry('back_styles', './assets/back/styles/main.scss')
     
+    .copyFiles([
+        {from: './assets/img', to: 'img/[path][name].[ext]'},
+        
+    ])
 
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.

@@ -63,7 +63,7 @@ header span{
 
 // BANNER
 section.banner{
-    background-image: url(../assets/img/banner.png);
+    background-image: url(../../../assets/img/banner.png);
     color: $light;
 
     div.bg-effect-glass{
@@ -244,15 +244,15 @@ div.thumbnail{
 }
 
 div.thumbnail:nth-child(1){
-    background-image: url(../assets/img/space.png);
+    background-image: url(../../../assets/img/space.png);
     
 }
 div.thumbnail:nth-child(2){
-    background-image: url(../assets/img/wolf.png);
+    background-image: url(../../../assets/img/wolf.png);
       
 }
 div.thumbnail:nth-child(3){
-    background-image: url(../assets/img/dog.png);
+    background-image: url(../../../assets/img/dog.png);
     margin-right: 0;
 }
 // PERSONNAL SUGGESTIONS
