@@ -29,3 +29,18 @@ div.product-card{
     }
 }
 
+// Responsive
+
+@media (max-width: 768px) {
+
+    div.products{
+        flex-direction: column;
+    }
+
+    div.product-card{
+        height: 100%;
+        width: max-content;
+        margin-bottom: 1rem;
+    }
+}
+

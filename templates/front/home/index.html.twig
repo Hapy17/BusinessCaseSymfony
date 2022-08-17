@@ -79,7 +79,7 @@
             </div>
             <!-- SECTION TITLE -->
             <!-- Testimonials -->
-            <div class="testimonials">
+            <div class="testimonials flex-column flex-md-row justify-content-between align-items-stretch">
 
                 {% for review in lastReviews | slice(0,3)  %}
                     {% include 'front/partials/_review.html.twig' %}
