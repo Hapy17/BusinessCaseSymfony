@@ -53,6 +53,7 @@ div .navMobile{
     div#top-header{
         display: flex;
         flex-direction: column;
+        width: max-content;
     }
 
     div.user-account div.user-name, div.user-favorites, div.user-basket .nbArticleBasket{
@@ -67,8 +68,17 @@ div .navMobile{
         display:none;
     }
 
-    div .navMobile{
+    div.iconsMobile{
+
         display: flex;
-        justify-content: flex-end;
-    }
+        justify-content: space-between;
+        align-items: center;
+        width: max-content;
+
+        div .navMobile{
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+    } 
 }

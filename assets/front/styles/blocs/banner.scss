@@ -28,3 +28,18 @@ section.banner{
 div.bg-effect-glass h1 + p{
     text-shadow: 1px 0px 5px black;
 }
+
+@media (max-width: 768px) {
+    section.banner {
+
+        background-position: 75%;
+
+        div div.bg-effect-glass{
+            width : fit-content;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            padding: 0 1rem;
+            justify-content: space-evenly;
+        }
+    }
+}

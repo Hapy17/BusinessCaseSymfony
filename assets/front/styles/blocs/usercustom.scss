@@ -14,3 +14,92 @@ section.user-custom{
         display: flex;
     }
 }
+
+// PERSONNAL SUGGESTIONS
+section.user-custom p:first-child{
+
+    & .text-green{
+        color: $green;
+    }
+}
+
+section.user-custom .thumbnail-title{
+    width: 100%;
+    color: $light;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+    background: linear-gradient( #cecece00 0%, #000000 90%);
+
+}
+
+
+div.thumbnail{
+    width:310px;
+    height:310px;
+    display: flex;
+    align-items: flex-end;
+    margin-right: 10px;
+    background-repeat: no-repeat;  
+    background-size: cover; 
+
+    p{
+        margin-bottom: 0rem !important;
+    }
+
+    // &:hover{
+    //     align-items: center;
+    // }
+    // TODO : voir pour une transition plus fluide 
+    
+}
+
+div.thumbnail:nth-child(1){
+    background-image: url(../../../../assets/img/space.png);
+    
+}
+div.thumbnail:nth-child(2){
+    background-image: url(../../../../assets/img/wolf.png);
+
+}
+div.thumbnail:nth-child(3){
+    background-image: url(../../../../assets/img/dog.png);
+    margin-right: 0;
+}
+// PERSONNAL SUGGESTIONS
+
+@media (max-width: 768px) {
+
+    section.user-custom{
+
+        width: 100%;
+
+        p.user-custom-title{
+            
+            margin: 1rem 1rem;
+        }
+
+        div{
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+
+        div.thumbnail{
+            margin-bottom: 1rem;
+            display: flex;
+            
+        
+            p.thumbnail-title{
+
+                margin: auto;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+
+}
