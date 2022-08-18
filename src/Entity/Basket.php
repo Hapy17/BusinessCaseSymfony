@@ -71,6 +71,8 @@ class Basket
     public function __construct()
     {
         $this->contains = new ArrayCollection();
+         // faire un dump de $this->contains pour voir ce que contient la collection
+        dump($this->contains);
     }
 
     public function getId(): ?int

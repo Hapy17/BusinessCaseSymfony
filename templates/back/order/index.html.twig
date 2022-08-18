@@ -1,0 +1,42 @@
+{% extends 'back/base.html.twig' %}
+
+{% block body %}
+    <h1>Index des commandes</h1>
+
+    <table class="table table-hover table-dark table-striped ">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Par</th>
+                <th>Créée le</th>
+                <th>Montant</th>
+                <th>Payée le</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.basket.user.username }}</td>
+                <td>{{ order.convertedAt ? order.convertedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ order.billedAt ? order.billedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_admin_order_show', {'id': order.id}) }}">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {# <div class="navigation d-flex justify-content-center my-3">
+                {{ knp_pagination_render(orders) }}
+    </div> #}
+
+    {# <a href="{{ path('app_admin_order_new') }}">Create new</a> #}
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends 'back/base.html.twig' %}
+
+{% block body %}
+    <h1>Order</h1>
+
+    <table class="table table-hover table-dark table-striped ">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ order.id }}</td>
+            </tr>
+            <tr>
+                <th>Créée le</th>
+                <td>{{ order.convertedAt ? order.convertedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Payée le</th>
+                <td>{{ order.billedAt ? order.billedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Mode de paiement</th>
+                <td>{{ order.paymentMethod.denomination}}</td>
+            </tr>
+            <tr>
+                <th>Etat de la commande</th>
+                <td>{{ order.orderState.status}}</td>
+            </tr>
+            <tr>
+                <td colspan='2'>
+                    <table class="table table-hover table-dark table-striped " >
+                        <thead>
+                            <tr>
+                                <th>Adresse</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Ligne 1 </th>
+                                <td>{{order.postalAddress.line1}} </td>
+                            </tr>
+                            {% if order.postalAddress.line2 is not null %}
+                                <tr>
+                                    <th>Ligne 2 </th>
+                                    <td>{{order.postalAddress.line2}} </td>
+                                </tr>
+                            {% endif %}
+                            {% if order.postalAddress.line3 is not null %}
+                                <tr>
+                                    <th>Ligne 3 </th>
+                                    <td>{{order.postalAddress.line3}} </td>
+                                </tr>
+                            {% endif %}
+                            <tr>
+                                <th>Code Postal </th>
+                                <td>{{order.postalAddress.postalCode}} </td>
+                            </tr>
+                            <tr>
+                                <th>Ville </th>
+                                <td>{{order.postalAddress.city}} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            {# TODO: Trouver un moyen d'afficher tous les produits et de passer le contains #}
+            </tr>
+            {% for line in order.basket.contains.toArray() %}
+
+            <tr>
+                <td colspan='2'>
+                    <table class="table table-hover table-dark table-striped " >
+                        <tbody>
+                            <tr>
+                                <th>Produit</th>
+                                <td>{{ line.product.name }}</td>
+                            </tr>
+                            <tr>
+                                <th>Quantité</th>
+                                <td>{{ line.quantity }}</td>
+                            </tr>
+                            <tr>
+                                <th>Prix unitaire HT</th>
+                                <td>{{ line.product.priceHt }} €</td>
+                            </tr>
+                            <tr>
+                                <th>Prix total TTC</th>
+                                <td>{{ (line.product.priceHT * line.quantity)+(line.product.priceHT * line.quantity)*0.20 }} €</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_order_index') }}">Retour à la liste</a>
+
+    {# <a href="{{ path('app_order_edit', {'id': order.id}) }}">edit</a> #}
+
+    {{ include('back/order/_delete_form.html.twig') }}
+{% endblock %}
