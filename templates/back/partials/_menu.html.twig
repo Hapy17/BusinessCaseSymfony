@@ -1,5 +1,21 @@
 <div class="d-flex flex-column ps-4 pt-4">
 
+    {# <h4>Utilisateurs</h4>
+    <a class="ps-2 {% if app.request.pathinfo == path('app_admin_user_index') %}menu-active{% endif %}" href=" {{path('app_admin_user_index')}}">Liste des utilisateurs</a>
+
+    <hr> #}
+
+    <h4>Commandes</h4>
+    <a class="ps-2 {% if app.request.pathinfo == path('app_admin_order_index') %}menu-active{% endif %}" href=" {{path('app_admin_order_index')}}">Liste des commandes</a>
+
+    <hr>
+
+    <h4>Produits</h4>
+    <a class="ps-2 {% if app.request.pathinfo == path('app_admin_product_index') %}menu-active{% endif %}" href=" {{path('app_admin_product_index')}}">Liste des produits</a>
+    <a class="ps-2 {% if app.request.pathinfo == path('app_admin_product_new') %}menu-active{% endif %}" href=" {{path('app_admin_product_new') }} ">Ajouter une produit</a>
+
+    <hr>
+
     <h4>Animaux</h4>
     <a class="ps-2 {% if app.request.pathinfo == path('app_admin_animal_index') %}menu-active{% endif %}" href=" {{path('app_admin_animal_index')}}">Liste des animaux</a>
     <a class="ps-2 {% if app.request.pathinfo == path('app_admin_animal_new') %}menu-active{% endif %}" href=" {{path('app_admin_animal_new') }} ">Ajouter un animal</a>
@@ -15,17 +31,6 @@
     <h4>Genres</h4>
     <a class="ps-2 {% if app.request.pathinfo == path('app_admin_gender_index') %}menu-active{% endif %}" href=" {{path('app_admin_gender_index')}}">Liste des genres</a>
     <a class="ps-2 {% if app.request.pathinfo == path('app_admin_gender_new') %}menu-active{% endif %}" href=" {{path('app_admin_gender_new') }} ">Ajouter une genre</a>
-
-    <hr>
-
-    <h4>Produits</h4>
-    <a class="ps-2 {% if app.request.pathinfo == path('app_admin_product_index') %}menu-active{% endif %}" href=" {{path('app_admin_product_index')}}">Liste des produits</a>
-    <a class="ps-2 {% if app.request.pathinfo == path('app_admin_product_new') %}menu-active{% endif %}" href=" {{path('app_admin_product_new') }} ">Ajouter une produit</a>
-
-    <hr>
-
-    <h4>Commandes</h4>
-    <a class="ps-2 {% if app.request.pathinfo == path('app_admin_order_index') %}menu-active{% endif %}" href=" {{path('app_admin_order_index')}}">Liste des commandes</a>
 
     <hr>
 
