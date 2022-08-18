@@ -1,0 +1,34 @@
+{% extends 'back/base.html.twig' %}
+{% block body %}
+    <h1>Index des Genres</h1>
+
+    <table class="table table-hover table-dark table-striped ">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for gender in genders %}
+            <tr>
+                <td>{{ gender.type }}</td>
+                <td>
+                    <a href="{{ path('app_admin_gender_show', {'id': gender.id}) }}">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                    <a href="{{ path('app_admin_gender_edit', {'id': gender.id}) }}">
+                        <i class="fa-solid fa-pen"></i>
+                    </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_gender_new') }}">Créer un nouveau genre</a>
+{% endblock %}
