@@ -23,17 +23,19 @@ class OrderController extends AbstractController
         ): Response
     {
 
-        // $qb = $orderRepository->getQbAll();
+        $qb = $orderRepository->getQbAll();
 
-        // $order = $paginator->paginate(
-        //     $qb,
-        //     $request->query->getInt('page', 1),
-        //     8
-        // );
+        $orders = $paginator->paginate(
+            $qb,
+            $request->query->getInt('page', 1),
+            8
+        );
         // TODO: Reparer le probleme du QbAll avec le order
 
+        dump($qb);
+
         return $this->render('back/order/index.html.twig', [
-            'orders' => $orderRepository->findAll(),
+            'orders' => $orders,
         ]);
     }
 

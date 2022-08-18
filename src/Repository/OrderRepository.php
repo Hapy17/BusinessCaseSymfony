@@ -15,11 +15,16 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Order[]    findAll()
  * @method Order[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class OrderRepository extends AbstractRepository
+class OrderRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Order::class);
+    }
+
+    public function getQbAll(): QueryBuilder
+    {
+        return $this->createQueryBuilder('o');
     }
 
 

@@ -18,6 +18,17 @@
 
     <hr>
 
+    <h4>Produits</h4>
+    <a class="ps-2 {% if app.request.pathinfo == path('app_admin_product_index') %}menu-active{% endif %}" href=" {{path('app_admin_product_index')}}">Liste des produits</a>
+    <a class="ps-2 {% if app.request.pathinfo == path('app_admin_product_new') %}menu-active{% endif %}" href=" {{path('app_admin_product_new') }} ">Ajouter une produit</a>
+
+    <hr>
+
+    <h4>Commandes</h4>
+    <a class="ps-2 {% if app.request.pathinfo == path('app_admin_order_index') %}menu-active{% endif %}" href=" {{path('app_admin_order_index')}}">Liste des commandes</a>
+
+    <hr>
+
     
 
 </div>

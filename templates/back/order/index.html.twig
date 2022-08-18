@@ -9,7 +9,6 @@
                 <th>Id</th>
                 <th>Par</th>
                 <th>Créée le</th>
-                <th>Montant</th>
                 <th>Payée le</th>
                 <th>actions</th>
             </tr>
@@ -34,9 +33,9 @@
         {% endfor %}
         </tbody>
     </table>
-    {# <div class="navigation d-flex justify-content-center my-3">
+    <div class="navigation d-flex justify-content-center my-3">
                 {{ knp_pagination_render(orders) }}
-    </div> #}
+    </div>
 
     {# <a href="{{ path('app_admin_order_new') }}">Create new</a> #}
 {% endblock %}
