@@ -16,9 +16,10 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_gender_index') }}">Retour à la liste</a>
-
-    <a href="{{ path('app_admin_gender_edit', {'id': gender.id}) }}">Modifier</a>
+    <div class="d-flex flex-column-reverse mb-2">
+        <a href="{{ path('app_admin_gender_index') }}">Retour à la liste</a>
+        <a href="{{ path('app_admin_gender_edit', {'id': gender.id}) }}">Modifier</a>
+    </div>
 
     {{ include('back/gender/_delete_form.html.twig') }}
 {% endblock %}
