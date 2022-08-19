@@ -23,42 +23,41 @@ class UserFilterType extends AbstractType
             ->add('username', TextFilterType::class, [
                 'condition_pattern' => FilterOperands::STRING_CONTAINS,
             ])
-            ->add('roles', filtertype::class, [
-                'choices' => [
-                    'ROLE_USER' => 'ROLE_USER',
-                    'ROLE_ADMIN' => 'ROLE_ADMIN',
-                ],
-            ])
+            // TODO: Trouver le bon filter pour le role
+            // ->add('roles', filtertype::class, [
+            //     'choices' => [
+            //         'ROLE_USER' => 'ROLE_USER',
+            //         'ROLE_ADMIN' => 'ROLE_ADMIN',
+            //     ],
+            // ])
             ->add('firstName', TextFilterType::class, [
                 'condition_pattern' => FilterOperands::STRING_CONTAINS,
             ])
             ->add('lastName', TextFilterType::class, [
                 'condition_pattern' => FilterOperands::STRING_CONTAINS,
             ])
-            ->add('birthAt', DateRangeFilterType::class, [
-                'left_date_options' => [
-                    'label' => 'De',
-                    'widget' => 'single_text',
-                    'format' => 'yyyy-MM-dd',
-                ],
-                'right_date_options' => [
-                    'label' => 'à',
-                    'widget' => 'single_text',
-                    'format' => 'yyyy-MM-dd',
-                ],
-            ])
-            ->add('createdAt', DateRangeFilterType::class, [
-                'left_date_options' => [
-                    'label' => 'De',
-                    'widget' => 'single_text',
-                    'format' => 'yyyy-MM-dd',
-                ],
-                'right_date_options' => [
-                    'label' => 'à',
-                    'widget' => 'single_text',
-                    'format' => 'yyyy-MM-dd',
-                ],
-            ])
+            // TODO: Trouver un moyen de filtrer par date
+            // ->add('birthAt', DateRangeFilterType::class, [
+            //     'left_date_options' => [
+            //         'label' => 'De',
+            //         'widget' => 'single_text',
+            //     ],
+            //     'right_date_options' => [
+            //         'label' => 'à',
+            //         'widget' => 'single_text',
+            //     ],
+            // ])
+            // ->add('createdAt', DateRangeFilterType::class, [
+            //     'left_date_options' => [
+            //         'label' => 'De',
+            //         'widget' => 'single_text',
+            //         'format' => 'yyyy-MM-dd',
+            //     ],
+            //     'right_date_options' => [
+            //         'label' => 'à',
+            //         'widget' => 'single_text',
+            //     ],
+            // ])
         ;
     }
 
