@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Back;
 
 use App\Entity\User;
-use App\Form\UserType;
+use App\Form\Filter\UserFilterType;
 use App\Repository\UserRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Lexik\Bundle\FormFilterBundle\Filter\FilterBuilderUpdaterInterface;
 
 #[Route('/admin/user')]
 class UserBackController extends AbstractController
@@ -18,12 +19,22 @@ class UserBackController extends AbstractController
     public function index(
         UserRepository $userRepository,
         PaginatorInterface $paginator,
-        Request $request
+        Request $request,
+        FilterBuilderUpdaterInterface $builderUpdater
         ): Response
 
     {
 
         $qb = $userRepository->getQbAll();
+
+        $filterForm = $this->createForm(UserFilterType::class, null, [
+            'method' => 'GET',
+        ]);
+
+        if($request->query->has($filterForm->getName())) {
+            $filterForm->submit($request->query->all($filterForm->getName()));
+            $builderUpdater->addFilterConditions($filterForm, $qb);
+        }
 
         $users = $paginator->paginate(
             $qb,
@@ -33,6 +44,7 @@ class UserBackController extends AbstractController
 
         return $this->render('back/user_back/index.html.twig', [
             'users' => $users,
+            'filters' => $filterForm->createView(),
         ]);
     }
     
