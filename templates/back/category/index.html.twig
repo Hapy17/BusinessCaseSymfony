@@ -4,10 +4,20 @@
     <h1>Index des categories</h1>
 
     <div class="col-8 mx-auto">
+    {{form_start(filters)}}
         <table class="table table-hover table-dark table-striped ">
             <thead>
                 <tr>
-                    <th>Label</th>
+                    <th>
+                    {{
+                    knp_pagination_sortable(
+                        categories,
+                        'Label',
+                        'category.label'
+                    )|raw
+                    }}
+                    {{form_widget(filters.label)}} 
+                    </th>
                     <th>actions</th>
                 </tr>
             </thead>
@@ -31,6 +41,7 @@
             {% endfor %}
             </tbody>
         </table>
+        {{form_end(filters)}}
         <div class="navigation d-flex justify-content-center my-3">
                 {{ knp_pagination_render(categories) }}
         </div>

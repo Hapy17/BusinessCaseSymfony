@@ -74,6 +74,9 @@
             "ref": "c81bdcf4a9d4e7b1959071457f9608631865d381"
         }
     },
+    "lexik/form-filter-bundle": {
+        "version": "v7.0.3"
+    },
     "lexik/jwt-authentication-bundle": {
         "version": "2.16",
         "recipe": {

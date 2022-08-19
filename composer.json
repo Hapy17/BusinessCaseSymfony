@@ -15,6 +15,7 @@
         "knplabs/knp-paginator-bundle": "^5.8",
         "knplabs/knp-snappy": "^1.4",
         "knplabs/knp-snappy-bundle": "^1.9",
+        "lexik/form-filter-bundle": "^7.0",
         "lexik/jwt-authentication-bundle": "^2.16",
         "nelmio/cors-bundle": "^2.2",
         "phpdocumentor/reflection-docblock": "^5.3",

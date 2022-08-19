@@ -5,11 +5,13 @@ namespace App\Controller\Back;
 use Knp\Component\Pager\PaginatorInterface;
 use App\Entity\Category;
 use App\Form\CategoryType;
+use App\Form\Filter\CategoryFilterType;
 use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Lexik\Bundle\FormFilterBundle\Filter\FilterBuilderUpdaterInterface;
 
 #[Route('/admin/category')]
 class CategoryController extends AbstractController
@@ -18,11 +20,21 @@ class CategoryController extends AbstractController
     public function index(
         CategoryRepository $categoryRepository,
         PaginatorInterface $paginator,
-        Request $request
+        Request $request,
+        FilterBuilderUpdaterInterface $builderUpdater
         ): Response
     {
 
         $qb = $categoryRepository->getQbAll();
+
+        $filterForm = $this->createForm(CategoryFilterType::class, null, [
+            'method' => 'GET',
+        ]);
+
+        if($request->query->has($filterForm->getName())) {
+            $filterForm->submit($request->query->all($filterForm->getName()));
+            $builderUpdater->addFilterConditions($filterForm, $qb);
+        }
 
         $category = $paginator->paginate(
             $qb,
@@ -32,6 +44,7 @@ class CategoryController extends AbstractController
 
         return $this->render('back/category/index.html.twig', [
             'categories' => $category,
+            'filters' => $filterForm->createView(),
         ]);
     }
 
