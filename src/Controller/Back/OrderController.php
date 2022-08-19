@@ -28,9 +28,8 @@ class OrderController extends AbstractController
         $orders = $paginator->paginate(
             $qb,
             $request->query->getInt('page', 1),
-            8
+            10
         );
-        // TODO: Reparer le probleme du QbAll avec le order
 
         dump($qb);
 

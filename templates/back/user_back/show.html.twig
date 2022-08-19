@@ -1,0 +1,42 @@
+{% extends 'back/base.html.twig' %}
+
+{% block body %}
+    <h1>Utilisateur</h1>
+
+    <table class="table table-hover table-dark table-striped ">
+        <tbody>
+
+            <tr>
+                <th>Mail</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ user.username }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>Prénom</th>
+                <td>{{ user.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ user.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Née le</th>
+                <td>{{ user.birthAt ? user.birthAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Compte créé le</th>
+                <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_user_back_index') }}">Retour à la liste</a>
+
+{% endblock %}
