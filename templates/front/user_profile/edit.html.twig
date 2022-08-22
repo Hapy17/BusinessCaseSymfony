@@ -1,0 +1,14 @@
+{% extends 'front/base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row1">
+            <div class="col-6 mx-auto">
+                <h1>Modifier le profil</h1>
+                {{ include('front/user_profile/_form.html.twig')}}
+                <a href="{{ path('app_user_profile_show', {'id': app.user.id } ) }}">Retour au profil</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
