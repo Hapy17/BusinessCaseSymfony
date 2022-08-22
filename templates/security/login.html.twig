@@ -1,0 +1,54 @@
+{% extends 'front/base.html.twig' %}
+
+{% block title %}Connectez-vous !{% endblock %}
+
+{% block body %}
+<div class="container ">
+    <div class="row d-flex flex-column">
+    <h1 class='col-6 mx-auto mt-3'>Se connecter</h1>
+        <form method="post" class='col-6 mx-auto mt-3'>
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+        
+            {% if app.user %}
+                <div class="mb-3">
+                    Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a class='btn btn-danger' href="{{ path('app_logout') }}">Se déconnecter</a>
+                </div>
+            {% endif %}
+    
+        
+            <div class="mb-3">
+                <label for="inputUsername">Username</label>
+                <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
+            </div>
+        
+            <div class="mb-3">
+                <label for="inputPassword">Password</label>
+                <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+            </div>
+        
+            <input type="hidden" name="_csrf_token"
+                   value="{{ csrf_token('authenticate') }}"
+            >
+        
+            {#
+                Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                See https://symfony.com/doc/current/security/remember_me.html
+        
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" name="_remember_me"> Remember me
+                    </label>
+                </div>
+            #}
+        
+            <button class="button" type="submit">
+                Connectez-vous !
+            </button>
+        </form>
+        <a class='col-6 mx-auto mt-3' href="{{path('app_register')}}">S'inscrire</a>
+
+    </div>
+</div>
+{% endblock %}

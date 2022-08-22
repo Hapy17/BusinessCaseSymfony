@@ -15,10 +15,21 @@ security:
         ROLE_ADMIN: ROLE_STATS
 
     firewalls:
+
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+
         main:
+            lazy: true
+            provider: app_user_provider
+            custom_authenticator: App\Security\AppCustomAuthenticator
+            logout:
+                path: app_logout
+                # where to redirect after logout
+                # target: app_any_route
+                
+        api:
             stateless: true
             provider: app_user_provider
             json_login:
@@ -28,6 +39,7 @@ security:
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
             jwt: ~
+            
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall

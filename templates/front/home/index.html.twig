@@ -18,7 +18,7 @@
         <!-- /BANNERS -->
         <!-- USER CUSTOM PARTS -->
         <section class="user-custom widthcustom">
-            <p class="user-custom-title">Bonjour{% if is_granted('ROLE_USER') %}<span class="text-green"> Hapy</span>{% endif %}, voici quelques suggestions</p>
+            <p class="user-custom-title">Bonjour{% if app.user%}<span class="text-green"> {{app.user.username}}</span>{% endif %}, voici quelques suggestions</p>
             <div>
                 <!-- THUMBNAILS 1 -->
                 <div class="thumbnail">

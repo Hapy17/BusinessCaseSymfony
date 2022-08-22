@@ -1,4 +1,4 @@
-form {
+form.search-form {
     background-color: $white;
     border: .5px solid $green;
     position: relative;
@@ -6,10 +6,10 @@ form {
     height: 30px;
 
     }
-form>label{
+form.search-form>label{
     display: none;
 }
-form input.search-bar{
+form.search-form input.search-bar{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -28,7 +28,7 @@ form input.search-bar{
     }
 }
 
-form input{
+form.search-form input{
 
     &.search-submit{
 

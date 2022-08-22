@@ -21,13 +21,16 @@
             <!-- USER LOG -->
             <div class="user-account">
                 <img src="{{asset('build/img/icons/icon_user.svg')}}" alt="Icone de l'utilisateur" class="user-icons">
+                {% if app.user %}
                 <div class="user-name">
-                    <span class="connect-user" data-bs-toggle="modal" data-bs-target="#authenticationModal">Se connecter</span>
+                    <span>{{app.user.username}}</span>
+                    <span class="subtitle"><a href="{{path('app_login')}} "  {#data-bs-toggle="modal" data-bs-target="#authenticationModal"#}>Accéder à mon compte</a></span>
                 </div>
-                <!-- <div class="user-name">
-                        <span>Bonjour, Hapy</span>
-                        <span class="subtitle"><a href=""  data-bs-toggle="modal" data-bs-target="#authenticationModal">Accéder à mon compte</a></span>
-                    </div> -->
+                {% else %}
+                <div class="user-name">
+                    <a href=' {{path('app_login')}} ' class="connect-user" {#data-bs-toggle="modal" data-bs-target="#authenticationModal"#}>Se connecter</a>
+                </div>
+                {% endif %}
             </div>
             <!-- /USER LOG -->
             <!-- FAVORITES -->
