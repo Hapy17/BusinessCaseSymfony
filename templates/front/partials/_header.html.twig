@@ -2,7 +2,7 @@
     <!-- TOP-HEADER -->
     <div id="top-header">
         <!-- LOGO -->
-        <img src="{{asset('build/img/logo.png')}}" alt="Logo la Nîme'alerie" id="logo">
+        <a href=" {{path('app_home')  }} "><img src="{{asset('build/img/logo.png')}}" alt="Logo la Nîme'alerie" id="logo"></a>
         <!-- /LOGO -->
         <!-- SEARCHBAR -->
         <form class="search-form" id="navForm" action="#" method="post">
@@ -16,7 +16,7 @@
         <div class="iconsMobile">
             <!-- NAVIGATION MOBILE -->
             <div>
-                <a data-bs-toggle="offcanvas" data-bs-target="#sideNav" aria-controls="sideNav"><img src="{{asset('build/img//icons/icon_menu.svg')}}" alt="Icone du menu mobile" class="navMobile"></a>
+                <a data-bs-toggle="offcanvas" data-bs-target="#sideNav" aria-controls="sideNav"><img src="{{asset('build/img//icons/icon_menu_white.svg')}}" alt="Icone du menu mobile" class="navMobile"></a>
             </div>
             <!-- USER LOG -->
             <div class="user-account">
@@ -24,25 +24,25 @@
                 {% if app.user %}
                 <div class="user-name">
                     <span>{{app.user.username}}</span>
-                    <span class="subtitle"><a href="{{path('app_login')}} "  {#data-bs-toggle="modal" data-bs-target="#authenticationModal"#}>Accéder à mon compte</a></span>
+                    <span class="subtitle"><a href="{{path('app_user_profile_show', {'id': app.user.id})}} "  {#data-bs-toggle="modal" data-bs-target="#authenticationModal"#}>Accéder à mon compte</a></span>
                 </div>
                 {% else %}
-                <div class="user-name">
+                <div class="user-name ">
                     <a href=' {{path('app_login')}} ' class="connect-user" {#data-bs-toggle="modal" data-bs-target="#authenticationModal"#}>Se connecter</a>
                 </div>
                 {% endif %}
             </div>
             <!-- /USER LOG -->
-            <!-- FAVORITES -->
+            {# <!-- FAVORITES -->
             <div class="user-favorites">
                 <img src="{{asset('build/img/icons/icon_heartempty_white.svg')}}" alt="Icone des favoris" class="user-icons">
                 <span class="favorite-user">Liste d'envies</span>
             </div>
-            <!-- /FAVORITES -->
+            <!-- /FAVORITES --> #}
             <!-- BASKET -->
             <div class="user-basket">
                 <img src="{{asset('build/img/icons/icon_basket.svg')}}" alt="Icone des favoris" class="user-icons" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                <span><a data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class='nbArticleBasket'>2 articles</a></span>
+                <span><a data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class='nbArticleBasket'>Panier</a></span>
             </div>
             <!-- /BASKET -->
         </div>
@@ -58,7 +58,7 @@
             <li><a href="">Rongeur & co</a></li>
             <li><a href="">Oiseau</a></li>
             <li><a href="">Wildlife</a></li>
-            <li><a href="">Offre spéciale</a></li>
+            <li><a href="{{ path('app_spaceTour')}}">Offre spéciale</a></li>
         </ul>
     </nav>
     <!-- /NAVBAR -->

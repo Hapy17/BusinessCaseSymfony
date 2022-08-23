@@ -1,0 +1,29 @@
+{% extends 'front/base.html.twig' %}
+        
+{% block title %}Space Tour{% endblock %}
+
+{% block body %}
+
+{% include 'front/partials/_header.html.twig' %}
+
+<div class="container">
+
+    <div class="row  d-flex flex-column flex-md-row">
+
+        <div class="col-6 mx-auto">
+            <h3 class='my-4' >Envoyer votre animal dans l'espace !!</h3>
+            <p>Grâce à un programme spéciale du grand Elon Musk, vous pouvez désormais envoyer votre animal dans l'espace !!!</p>
+            <p>Le prix est de 1000$ par animal, et vous pouvez en envoyer jusqu'à 3.</p>
+            <p>Vous pouvez également choisir de faire un don à l'association pour aider les animaux en détresse. Ce qui est, je pense, une bien meileur façon de dépenser son argent.</p>
+            <p>Pour plus de précisions, rendez-vous sur le site de <a href="https://www.spacex.com/">SpaceX.</a></p>
+        </div>
+
+        <div class="col-6 mx-auto my-4">
+            <img class='spaceDogImg' src="{{ asset('build/img/dogSpace.jpg') }}" alt="Photo d'un chien dans l'espace">
+        </div>
+
+    </div>
+
+</div>
+{% include 'front/partials/_footer.html.twig' %}
+{% endblock %}

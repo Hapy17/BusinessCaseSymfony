@@ -63,7 +63,6 @@ class UserProfileType extends AbstractType
                     'class' => 'button my-3',
                 ],
             ])
-
         ;
     }
 

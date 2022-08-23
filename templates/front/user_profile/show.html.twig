@@ -6,11 +6,11 @@
 
 {% include 'front/partials/_header.html.twig' %}
 
-<h2 class='mt-3'>Détails du compte</h2>
 
     <div class="contain">
         <div class="row">
             <div class="col-5 mx-auto">
+                <h2 class='mt-3'>Détails du compte</h2>
                 <table class="table table-striped">
                     <tbody>
                         <tr>
@@ -47,39 +47,45 @@
                         </tr>
                     </tbody>
                 </table>
-                {# <table>
-                    <thead>
-                        <tr>
-                            <th>Adresse</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{{ user.postalAddress.line1 }}</td>
-                        </tr>
-                        {% if user.postalAddress.line2 %}
-                        <tr>
-                            <td>{{ user.postalAddress.line2 }}</td>
-                        </tr>
-                        {% endif %}
-                        {% if user.postalAddress.line3 %}
-                        <tr>
-                            <td>{{ user.postalAddress.line3 }}</td>
-                        </tr>
-                        {% endif %}
-                        <tr>
-                            <td>{{ user.postalAddress.postalCode }}</td>
-                        </tr>
-                        <tr>
-                            <td>{{ user.postalAddress.city }}</td>
-                        </tr>
-                    </tbody>
-                </table> #}
+                {% if user.postalAddress %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Adresse</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ user.postalAddress.line1 }}</td>
+                            </tr>
+                            {% if user.postalAddress.line2 %}
+                            <tr>
+                                <td>{{ user.postalAddress.line2 }}</td>
+                            </tr>
+                            {% endif %}
+                            {% if user.postalAddress.line3 %}
+                            <tr>
+                                <td>{{ user.postalAddress.line3 }}</td>
+                            </tr>
+                            {% endif %}
+                            <tr>
+                                <td>{{ user.postalAddress.postalCode }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{ user.postalAddress.city }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                     {# <a href="{{ path('app_postalAddress_profile_edit', {'id'= user.postalAddress.id }) }}" class="button">Modifier mon adresse</a> #}
+                {% else %}
+                    {# <a href="{{ path('app_postalAddress_profile_new') }}" class="button">Ajouter une adresse</a> #}
+                {% endif %}
 
-                <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center mt-3">
                     <a href="{{ path('app_user_profile_edit', {'id': user.id}) }}">
                         <i class="fas fa-pen me-5"></i>
                     </a>
+                    <a class='btn btn-warning me-5' href="{{ path('app_logout') }}">Se déconnecter</a>
                     {{ include('front/user_profile/_delete_form.html.twig') }}
                 </div>
             </div>
