@@ -127,7 +127,6 @@ section div h2{
 }
 
 
-
 section h2 {
     font-family: 'Oxygen', sans-serif;
     font-weight: 300;
@@ -238,5 +237,15 @@ div.reinsurance-card p{
 // REINSURANCE
 
 
+// MediaQuery
+
+
+@media (max-width: 768px) {
+    section div h2{
+        &:after {
+            display: none;
+        }
+    }
+}
 
 

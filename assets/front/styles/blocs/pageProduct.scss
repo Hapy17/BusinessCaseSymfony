@@ -1,0 +1,12 @@
+img.imgPageProduct{
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    img.imgPageProduct{
+        width: 100vw;
+        height: auto;
+    }
+}

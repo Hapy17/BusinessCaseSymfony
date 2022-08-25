@@ -1,6 +1,6 @@
 App\Entity\Review:
     review{0..200}:
-        comment: '<text(50)>'
+        comment: '<text(250)>'
         issuedAt: '<dateTime(now)>'
         rating: '<numberBetween(1, 5)>'
         product: '@product*'
