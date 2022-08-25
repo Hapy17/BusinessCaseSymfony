@@ -1,0 +1,87 @@
+{% extends 'front/base.html.twig' %}
+
+{% block body %}
+    {% include 'front/partials/_header.html.twig' %}
+
+    <div class="container widthcustom">
+
+        <div class="row ">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Library</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                </ol>
+            </nav>
+            <hr>
+        </div>
+
+        <div class="row flex-column flex-md-row">
+
+            <div class="col-6 mb-3">
+                <img src="{#{{ product.pictures.path }}#}{{asset('build/img/img_product.png')}}" alt=''></img>
+            </div>
+
+            <div class="col-6">
+                <div class="row">
+                    <h2> {{product.name}} </h2>
+                </div>
+                <p> {{avgRating|round(1,'common')}} </p>
+                <p> {{product.description}} </p>
+
+                <div class="d-flex justify-content-between">
+
+                    <div>
+                        <span>Quantité :</span>
+                    </div>
+
+                    <p><span class="product-price">{{(product.priceHt)+(product.priceHt)*0.20}}€</span>/unité (TTC)</p>
+
+                </div>
+
+                <div class='row' >
+                    <button class="mx-auto button">Ajouter au panier</button>
+                </div>
+
+            </div>
+
+        
+        </div>
+
+    </div>
+
+    {# Section Avis des utilisateurs #}
+    <section class="widthcustom">
+
+        <div class="section-title">
+            <h2>Avis des Utilisateurs</h2>
+        </div>
+
+        <div>
+            {% for review in lastReviews %}
+                {% include 'front/partials/_reviewPageProduct.html.twig' %}
+            {% endfor %}
+        </div>
+
+    </section>
+    {# /Section Avis des utilisateurs #}
+
+    {# Section produits #}
+    <section class="selection widthcustom">
+        <!-- SECTION CAROUSEL TITLE -->
+        <div class="section-title">
+            <h2>Vous aimerez peut-être ...</h2>
+        </div>
+        <!-- /SECTION CAROUSEL TITLE -->
+        <!-- CAROUSEL -->
+        <div class="products">
+            {% for product in randProducts %}
+                {% include 'front/partials/_cardProduct.html.twig' %}
+            {% endfor %}
+        </div>
+        <!-- /CAROUSEL -->
+    </section>
+    {# /Section produits #}
+
+    {% include 'front/partials/_footer.html.twig' %}
+{% endblock %}

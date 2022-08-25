@@ -5,10 +5,15 @@ body{
     font-size: 1rem;
 }
 
-section.widthcustom{
+.widthcustom{
     width: $widthperso;
+}
+
+section.widthcustom { 
     margin: 2rem auto ;
 }
+
+
 // media query mobile de la largeur de la page
 @media (max-width: 768px) {
     section.widthcustom{
@@ -149,8 +154,7 @@ div.product-card-footer p.product-brand{
         font-size: .9rem;
     }
 }
-
-div.product-card-footer p.product-price{
+.product-price{
         font-family: 'Montserrat', sans-serif;
         font-weight: 700;
         text-transform: uppercase;

@@ -15,6 +15,22 @@ section.users-testimonials div.testimonials {
 
 }
 
+div.testimonialPageProduct {
+
+    div{
+        width: 100%;
+    }
+
+    p{
+        line-height: .5rem;
+    }
+
+    span.greenText{
+        color: $green;
+        font-weight: 700;
+    }
+}
+
 // div.testimonial-user :last-child{
 
 //     display: flex;

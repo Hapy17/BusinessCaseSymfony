@@ -49,6 +49,31 @@ class ReviewRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    // recuperer les derniers avis en fonction du produit
+
+    public function getLastReviewsByProduct(int $productId)
+    {
+        return $this->createQueryBuilder('r')
+            ->select('r')
+            ->where('r.product = :productId')
+            ->setParameter('productId', $productId)
+            ->orderBy('r.issuedAt', 'DESC')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult();
+    }
+
+    // Faire une moyenne des notes pour un produit
+    public function getAverageRatingByProduct(int $productId)
+    {
+        return $this->createQueryBuilder('r')
+            ->select('AVG(r.rating)')
+            ->where('r.product = :productId')
+            ->setParameter('productId', $productId)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
 //    /**
 //     * @return Review[] Returns an array of Review objects
 //     */
