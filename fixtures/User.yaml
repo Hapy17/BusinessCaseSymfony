@@ -14,6 +14,7 @@ App\Entity\User:
         postalAddress: '@postalAddress*'
         products: '<numberBetween(1,15)>x @product*'
         gender: '@gender*'
+        isVerified: '<boolean(75)>'
 
     account_admin (extends account):
         email: 'admin@admin.com'
@@ -21,6 +22,7 @@ App\Entity\User:
         password: '<{passwordAdmin}>' #Issou2021
         firstName: 'Admin'      
         roles: ['ROLE_ADMIN']
+        isVerified: '<boolean(100)>'
 
     account_stats (extends account):
         email: 'stats@admin.com'
@@ -28,5 +30,6 @@ App\Entity\User:
         password: '<{passwordAdmin}>' #Issou2021
         firstName: 'Stats'      
         roles: ['ROLE_STATS']
+        isVerified: '<boolean(100)>'
 
     account0{0..105} (extends account): ~

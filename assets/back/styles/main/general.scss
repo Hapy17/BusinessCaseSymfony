@@ -1,6 +1,7 @@
 body{
     background-color: $backgroundColor;
     color: $textColor;
+    overflow-x: hidden;
 }
 
 .menu-active{
@@ -20,4 +21,14 @@ a{
     &:hover{
         color: $lightColor;
     }
+}
+
+input[type="text"]{
+    width : 50%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 2rem;
 }

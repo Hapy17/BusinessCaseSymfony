@@ -3,118 +3,119 @@
 {% block body %}
     <h1>Index des utilisateurs</h1>
 
-   
     <a href="{{ path('app_admin_user_back_index') }}">Annulation des filtres</a>
+   
+    <div class="col-12 mx-auto">
 
-    {{ form_start(filters) }}
-    <table  class="table table-hover table-dark table-striped ">
-        <thead>
-            <tr>
-                <th>
-                    {{
-                    knp_pagination_sortable(
-                        users,
-                        'Mail',
-                        'user.email'
-                    )|raw
-                    }}
-                    {{form_widget(filters.email)}}
-                </th>
-                <th>
-                    {{
-                    knp_pagination_sortable(
-                        users,
-                        'Username',
-                        'user.username'
-                    )|raw
-                    }}
-                    {{form_widget(filters.username)}}
-                </th>
-                <th>
-                    {{
-                    knp_pagination_sortable(
-                        users,
-                        'Roles',
-                        'user.roles'
-                    )|raw
-                    }}
-                    {# {{form_widget(filters.roles)}} #}
-                </th>
-                <th>
-                    {{
-                    knp_pagination_sortable(
-                        users,
-                        'Prénom',
-                        'user.firstName'
-                    )|raw
-                    }}
-                    {{form_widget(filters.firstName)}}
-                </th>
-                <th>
-                    {{
-                    knp_pagination_sortable(
-                        users,
-                        'Nom',
-                        'user.lastName'
-                    )|raw
-                    }}
-                    {{form_widget(filters.lastName)}}
-                </th>
-                <th>
-                    {{
-                    knp_pagination_sortable(
-                        users,
-                        'Née le',
-                        'user.birthAt'
-                    )|raw
-                    }}
-                    {# {{form_widget(filters.birthAt)}} #}
-                </th>
-                <th>
-                    {{
-                    knp_pagination_sortable(
-                        users,
-                        'Compte créé le',
-                        'user.createdAt'
-                    )|raw
-                    }}
-                    {# {{form_widget(filters.createdAt)}} #}
-                </th>
-                <th>
-                    <div class="d-flex flex-row align-items-center ">
-                        <button type='submit' class='me-2' >Filtrer</button>
-                        <a href="{{ path('app_admin_user_back_index') }}"><i class="fas fa-xmark "></i></a>
-                    </div>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.email }}</td>
-                <td>{{ user.username }}</td>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>{{ user.firstName }}</td>
-                <td>{{ user.lastName }}</td>
-                <td>{{ user.birthAt ? user.birthAt|date('Y-m-d') : '' }}</td>
-                <td>{{ user.createdAt ? user.createdAt|date('Y-m-d') : '' }}</td>
-                <td>
-                    <a href="{{ path('app_admin_user_back_show', {'id': user.id}) }}">
-                        <i class="fas fa-magnifying-glass"></i>
-                    </a>
-
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="10">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    {{ form_start(filters) }}
-    <div class="navigation d-flex justify-content-center my-3">
-            {{ knp_pagination_render(users) }}
+        {{ form_start(filters) }}
+        <table  class="table table-hover table-dark table-striped ">
+            <thead>
+                <tr>
+                    <th>
+                        {{
+                        knp_pagination_sortable(
+                            users,
+                            'Mail',
+                            'user.email'
+                        )|raw
+                        }}
+                        {{form_widget(filters.email)}}
+                    </th>
+                    <th>
+                        {{
+                        knp_pagination_sortable(
+                            users,
+                            'Username',
+                            'user.username'
+                        )|raw
+                        }}
+                        {{form_widget(filters.username)}}
+                    </th>
+                    {# <th>
+                        {{
+                        knp_pagination_sortable(
+                            users,
+                            'Roles',
+                            'user.roles'
+                        )|raw
+                        }}
+                        {{form_widget(filters.roles)}}
+                    </th>#}
+                    <th>
+                        {{
+                        knp_pagination_sortable(
+                            users,
+                            'Prénom',
+                            'user.firstName'
+                        )|raw
+                        }}
+                        {{form_widget(filters.firstName)}}
+                    </th>
+                    <th>
+                        {{
+                        knp_pagination_sortable(
+                            users,
+                            'Nom',
+                            'user.lastName'
+                        )|raw
+                        }}
+                        {{form_widget(filters.lastName)}}
+                    </th>
+                    <th>
+                        {{
+                        knp_pagination_sortable(
+                            users,
+                            'Née le',
+                            'user.birthAt'
+                        )|raw
+                        }}
+                        {# {{form_widget(filters.birthAt)}} #}
+                    </th>
+                    <th>
+                        {{
+                        knp_pagination_sortable(
+                            users,
+                            'Compte créé le',
+                            'user.createdAt'
+                        )|raw
+                        }}
+                        {# {{form_widget(filters.createdAt)}} #}
+                    </th>
+                    <th>
+                        <div class="d-flex flex-row align-items-center ">
+                            <button type='submit' >Filtrer</button>
+                            <a href="{{ path('app_admin_user_back_index') }}"><i class="fas fa-xmark "></i></a>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.username }}</td>
+                    {# <td>{{ user.roles ? user.roles|json_encode : '' }}</td> #}
+                    <td>{{ user.firstName }}</td>
+                    <td>{{ user.lastName }}</td>
+                    <td>{{ user.birthAt ? user.birthAt|date('Y-m-d') : '' }}</td>
+                    <td>{{ user.createdAt ? user.createdAt|date('Y-m-d') : '' }}</td>
+                    <td>
+                        <a href="{{ path('app_admin_user_back_show', {'id': user.id}) }}">
+                            <i class="fas fa-magnifying-glass"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="10">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {{ form_start(filters) }}
+        <div class="navigation d-flex justify-content-center my-3">
+                {{ knp_pagination_render(users) }}
+        </div>
     </div>
 
 {% endblock %}
