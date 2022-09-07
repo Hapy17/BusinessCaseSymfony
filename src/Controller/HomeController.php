@@ -24,7 +24,6 @@ class HomeController extends AbstractController
         $bestRatingProducts = $this->productRepository->getBestRatingProducts();
         $randProducts = $this->productRepository->getRandProducts();
         $lastReviews = $this->reviewRepository->getLastReviews();
-        dump($lastReviews);
 
         return $this->render('front/home/index.html.twig', [
             'bestRatingProducts' => $bestRatingProducts,
