@@ -27,7 +27,7 @@
                     <h2> {{product.name}} </h2>
                 </div>
                 <h5> {{product.brand.designation}}</h5>
-                <p> {{avgRating|round(1,'common')}} </p>
+                <p class='text-center'> Note : {{avgRating|round(1,'common')}} / 5 </p>
                 <div class="progress">
                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Animated striped example" aria-valuenow="{{((avgRating)*20)|round(1,'common')}}" aria-valuemin="0" aria-valuemax="100" style="width: {{((avgRating)*20)|round(1,'common')}}%"></div>
                 </div>
