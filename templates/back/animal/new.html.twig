@@ -1,13 +1,17 @@
 {% extends 'back/base.html.twig' %}
 
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+
 {% block title %}
     Nouvel Animal
 {% endblock %}
 
 {% block body %}
     <h1>Créer un nouvel animal</h1>
-
-    {{ include('back/animal/_form.html.twig') }}
+    
+    <div class="col-6 mx-auto">
+            {{ include('back/animal/_form.html.twig') }}
+    </div>
 
     <a href="{{ path('app_admin_animal_index') }}">Retour à la liste</a>
 {% endblock %}
