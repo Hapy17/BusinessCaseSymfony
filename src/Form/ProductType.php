@@ -17,6 +17,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
+use FOS\CKEditorBundle\Form\Type\CKEditorType; 
 
 class ProductType extends AbstractType
 {
@@ -26,7 +27,7 @@ class ProductType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => 'Nom',
             ])
-            ->add('description', TextType::class, [
+            ->add('description', CKEditorType::class, [
                 'label' => 'Description',
             ])
             ->add('priceHt', NumberType::class, [
