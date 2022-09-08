@@ -19,15 +19,19 @@
         <div class="row flex-column flex-md-row">
 
             <div class="col-6  ">
-                <img class='mx-auto mb-4 imgPageProduct' src="{#{{ product.pictures.path }}#}{{asset('build/img/img_product.png')}}" alt=''></img>
+                <img class='mx-auto mb-4 imgPageProduct' src="{{ product.picture }}" alt=''></img>
             </div>
 
             <div class="col-6">
                 <div class="row">
                     <h2> {{product.name}} </h2>
                 </div>
+                <h5> {{product.brand.designation}}</h5>
                 <p> {{avgRating|round(1,'common')}} </p>
-                <p> {{product.description}} </p>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Animated striped example" aria-valuenow="{{((avgRating)*20)|round(1,'common')}}" aria-valuemin="0" aria-valuemax="100" style="width: {{((avgRating)*20)|round(1,'common')}}%"></div>
+                </div>
+                <p> {{product.description | raw }} </p>
 
                 <div class="d-flex justify-content-between">
 
@@ -35,7 +39,7 @@
                         <span>Quantité :</span>
                     </div>
 
-                    <p><span class="product-price">{{(product.priceHt)+(product.priceHt)*0.20}}€</span>/unité (TTC)</p>
+                    <p><span class="product-price">{{((product.priceHt)*1.20)|round(2)}}€</span>/unité (TTC)</p>
 
                 </div>
 
@@ -50,21 +54,23 @@
 
     </div>
 
-    {# Section Avis des utilisateurs #}
-    <section class="widthcustom">
+    {% if lastReviews %}
+        {# Section Avis des utilisateurs #}
+        <section class="widthcustom">
 
-        <div class="section-title">
-            <h2>Avis des Utilisateurs</h2>
-        </div>
+            <div class="section-title">
+                <h2>Avis des Utilisateurs</h2>
+            </div>
 
-        <div>
-            {% for review in lastReviews %}
-                {% include 'front/partials/_reviewPageProduct.html.twig' %}
-            {% endfor %}
-        </div>
+            <div>
+                {% for review in lastReviews %}
+                    {% include 'front/partials/_reviewPageProduct.html.twig' %}
+                {% endfor %}
+            </div>
 
-    </section>
-    {# /Section Avis des utilisateurs #}
+        </section>
+        {# /Section Avis des utilisateurs #}
+    {% endif %}
 
     {# Section produits #}
     <section class="selection widthcustom">

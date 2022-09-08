@@ -18,7 +18,7 @@
         {% for product in products %}
             <tr>
                 <td>{{ product.name }}</td>
-                <td>{{ product.description }}</td>
+                <td>{{ product.description | raw }}</td>
                 <td>{{ product.priceHt }}€</td>
                 <td>{{ product.isActive ? 'Oui' : 'Non' }}</td>
                 <td>
