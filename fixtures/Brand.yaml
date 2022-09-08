@@ -1,3 +1,47 @@
 App\Entity\Brand:
-    brand{0..50}:
-        designation: '<word(1)>'
+    brand01:
+        designation: 'Advantix'
+    brand02:
+        designation: 'Affinity'
+    brand03:
+        designation: 'Almo Nature'
+    brand04:
+        designation: 'Animonda'
+    brand05:
+        designation: 'bosch'
+    brand06:
+        designation: 'Carnilove'
+    brand07:
+        designation: 'Catsan'
+    brand08:
+        designation: 'Cosma'
+    brand09:
+        designation: 'Crave'
+    brand10:
+        designation: 'Curver'
+    brand11:
+        designation: 'Purina'
+    brand12:
+        designation: 'Royal Canin'
+    brand13:
+        designation: 'Pedigree'
+    brand14:
+        designation: 'Purina One'
+    brand15:
+        designation: 'Purina Pro Plan'
+    brand16:
+        designation: 'Purina Pro Plan Veterinary Diets'
+    brand17:
+        designation: 'Royal Canin Veterinary Diets'
+    brand18:
+        designation: 'Sanabelle'
+    brand19:
+        designation: 'Sheba'
+    brand20:
+        designation: 'Whiskas'
+    brand21:
+        designation: 'Wild Freedom'
+    brand22:
+        designation: 'Yarrah'
+    brand23:
+        designation: 'Wolf of Wilderness'
