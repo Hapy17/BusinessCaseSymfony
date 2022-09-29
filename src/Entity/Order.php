@@ -7,6 +7,8 @@ use App\Repository\OrderRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Controller\Stats\MontantTotalController;
+use App\Controller\Stats\TotalOrdersController;
 
 
 #[ORM\Entity(repositoryClass: OrderRepository::class)]
@@ -15,6 +17,22 @@ use Symfony\Component\Validator\Constraints as Assert;
     collectionOperations: [
         'get' => ['security' => 'is_granted("ROLE_STATS")'],
         'post' => ['security' => 'is_granted("ROLE_ADMIN")'],
+
+        'getTotalSales' => [
+            'security' => 'is_granted("ROLE_STATS")',
+            'method' => 'GET',
+            'path' => '/total-sales',
+            'controller' => MontantTotalController::class,
+            
+        ],
+
+        'getTotalOrders' => [
+            'security' => 'is_granted("ROLE_STATS")',
+            'method' => 'GET',
+            'path' => '/total-orders',
+            'controller' => TotalOrdersController::class,
+            
+        ],
     ],
     itemOperations: [
         'get' => ['security' => 'is_granted("ROLE_STATS")' ],

@@ -9,12 +9,21 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Controller\Stats\TotalBasketController;
 
 #[ORM\Entity(repositoryClass: BasketRepository::class)]
 #[ApiResource(
     collectionOperations: [
         'get' => ['security' => 'is_granted("ROLE_STATS")'],
         'post' => ['security' => 'is_granted("ROLE_ADMIN")'],
+
+        'getTotalBasket' => [
+            'security' => 'is_granted("ROLE_STATS")',
+            'method' => 'GET',
+            'path' => '/total-baskets',
+            'controller' => TotalBasketController::class,
+            
+        ],
     ],
     itemOperations: [
         'get' => ['security' => 'is_granted("ROLE_STATS")' ],

@@ -63,4 +63,13 @@ class BasketRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+// Somme de tous les paniers
+    public function findTotalBasket(): mixed
+    {
+        return $this->createQueryBuilder('b')
+            ->select('SUM(b.id) as totalBaskets')
+            ->getQuery()
+            ->getSingleResult();
+    }
 }
