@@ -34,6 +34,6 @@ class OrderRepository extends ServiceEntityRepository
             ->select('COUNT(o.id) as totalOrders')
             ->getQuery()
             ->getSingleResult();
-    }    
+    } 
 
 }

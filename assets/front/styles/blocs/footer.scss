@@ -1,4 +1,4 @@
-footer div.footer-links{
+footer div.footer-links {
     display: flex;
     justify-content: left;
     width: fit-content;
@@ -6,21 +6,21 @@ footer div.footer-links{
     margin: 2rem 0rem;
 
 
-    div{
+    div {
         margin-right: 1.5rem;
 
-        ul{
+        ul {
             margin-left: -2rem;
 
-            li{
+            li {
                 list-style-type: none;
             }
         }
-        
+
     }
 }
 
-div.footer-copyright p{
+div.footer-copyright p {
     width: 100%;
     text-align: center;
     padding-bottom: .5rem;
@@ -28,37 +28,37 @@ div.footer-copyright p{
 }
 
 // FOOTER
-footer{
+footer {
     background-color: $darkgreen;
     color: $light;
 
-    div.widthcustom{
+    div.widthcustom {
         width: $widthperso;
         margin: auto;
     }
 
-    a{
+    a {
         text-decoration: none;
         color: $light;
 
-        &:visited{
+        &:visited {
             color: $lightgreen;
         }
 
-        &:hover{
-            color:$yellow;
+        &:hover {
+            color: $yellow;
         }
     }
 
 }
 
 div.footer-links div h4 {
-    font-family: 'Montserrat',sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     text-transform: uppercase;
 
-    +ul>li{
-        font-family: 'Oxygen',sans-serif;
+    +ul>li {
+        font-family: 'Oxygen', sans-serif;
         font-weight: 400;
     }
 }
@@ -73,29 +73,30 @@ div.footer-links div h4 {
         margin: auto;
 
 
-        div.footer-links{
-        
+        div.footer-links {
+
             width: 100%;
             flex-direction: column;
             align-items: center;
             margin: auto;
-            
-    
-            div{
+
+
+            div {
                 margin-right: 1rem;
                 margin-bottom: 1rem;
             }
         }
-        div.footer-copyright{
+
+        div.footer-copyright {
             width: 75%;
             text-align: center;
             margin: auto;
 
-            p{
+            p {
                 margin-bottom: 0;
             }
 
         }
     }
-    
+
 }
