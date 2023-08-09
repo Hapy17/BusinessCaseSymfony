@@ -11,4 +11,11 @@
         color: $green;
         border: 1px solid $green;
     }
+
+    &:disabled{
+        background-color: rgb(177, 177, 177);
+        color: lightgrey;
+        border: none;
+        cursor: not-allowed;
+    }
 }

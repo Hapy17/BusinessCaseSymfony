@@ -103,8 +103,8 @@ class Product
     #[ORM\ManyToOne(inversedBy: 'products')]
     private ?Category $category = null;
 
-    #[ORM\Column(length: 255 , nullable: true)]
-    private ?string $picture = null;
+    // #[ORM\Column(length: 255 , nullable: true)]
+    // private ?string $picture = null;
 
     public function __construct()
     {
@@ -299,15 +299,15 @@ class Product
         return $this;
     }
 
-    public function getPicture(): ?string
-    {
-        return $this->picture;
-    }
+    // public function getPicture(): ?string
+    // {
+    //     return $this->picture;
+    // }
 
-    public function setPicture(?string $picture): self
-    {
-        $this->picture = $picture;
+    // public function setPicture(?string $picture): self
+    // {
+    //     $this->picture = $picture;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 }

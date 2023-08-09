@@ -26,6 +26,11 @@
                     <span>{{app.user.username}}</span>
                     <span class="subtitle"><a href="{{path('app_user_profile_show', {'id': app.user.id})}} "  {#data-bs-toggle="modal" data-bs-target="#authenticationModal"#}>Accéder à mon compte</a></span>
                 </div>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <div class="ms-2">
+                            <span ><a href="{{path('app_admin_animal_index')}} "  {#data-bs-toggle="modal" data-bs-target="#authenticationModal"#}>Administration</a></span>
+                        </div>
+                    {% endif %}
                 {% else %}
                 <div class="user-name ">
                     <a href=' {{path('app_login')}} ' class="connect-user" {#data-bs-toggle="modal" data-bs-target="#authenticationModal"#}>Se connecter</a>

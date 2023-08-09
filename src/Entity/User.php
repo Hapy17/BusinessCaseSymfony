@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 
-#[ORM\Entity(repositoryClass: UserRepoSsitory::class)]
+#[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ApiResource(
     collectionOperations: [
         'get' => ['security' => 'is_granted("ROLE_STATS")'],
