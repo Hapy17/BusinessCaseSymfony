@@ -27,5 +27,13 @@ class OrderRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('o');
     }
 
+// Récuperer le nombre de commandes
+    public function findTotalOrder(): mixed
+    {
+        return $this->getQbAll()
+            ->select('COUNT(o.id) as totalOrders')
+            ->getQuery()
+            ->getSingleResult();
+    } 
 
 }

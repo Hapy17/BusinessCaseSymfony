@@ -10,7 +10,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ContainRepository::class)]
 #[ApiResource(
-    collectionOperations: [],
+    collectionOperations: [
+        
+    ],
     itemOperations: [
         "get" => ["security" => "is_granted('ROLE_ADMIN')"],
         ]

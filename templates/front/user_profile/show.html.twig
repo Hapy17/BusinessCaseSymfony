@@ -18,19 +18,19 @@
                             <td>{{ user.email }}</td>
                         </tr>
                         <tr>
-                            <th>Username</th>
+                            <th>Pseudo</th>
                             <td>{{ user.username }}</td>
                         </tr>
                         <tr>
-                            <th>FirstName</th>
+                            <th>Prénom</th>
                             <td>{{ user.firstName }}</td>
                         </tr>
                         <tr>
-                            <th>LastName</th>
+                            <th>Nom</th>
                             <td>{{ user.lastName }}</td>
                         </tr>
                         <tr>
-                            <th>BirthAt</th>
+                            <th>Né.e le</th>
                             <td>{{ user.birthAt ? user.birthAt|date('Y-m-d H:i:s') : '' }}</td>
                         </tr>
                         {# <tr>
@@ -38,11 +38,11 @@
                             <td>{{ user.gender.type }}</td>
                         </tr> #}
                         <tr>
-                            <th>CreatedAt</th>
+                            <th>Compte créé le</th>
                             <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                         </tr>
                         <tr>
-                            <th>IsVerified</th>
+                            <th>Vérifié ?</th>
                             <td>{{ user.isVerified ? 'Oui' : 'Non' }}</td>
                         </tr>
                     </tbody>

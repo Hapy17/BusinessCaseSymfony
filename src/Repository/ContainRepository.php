@@ -63,4 +63,25 @@ class ContainRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+// Requete pour montant total de l'Api
+//  SELECT SUM(contain.unit_price_ht*contain.quantity)
+//  FROM contain
+//  JOIN basket ON contain.basket_id = basket.id
+//  JOIN `order` as command ON basket.id = command.basket_id
+//  WHERE command.order_state_id = 3 
+//  GROUP BY command.id   
+
+    public function findTotalSales(): mixed
+    {
+        return $this->createQueryBuilder('contain')
+            ->select('SUM(contain.unitPriceHt*contain.quantity) as totalSales')
+            ->join('contain.basket', 'basket')
+            ->join('basket.relateOrder', 'command')
+            ->where('command.orderState = 3')
+            ->groupBy('command.id')
+            ->getQuery()
+            ->getSingleResult();
+    }
+
 }
